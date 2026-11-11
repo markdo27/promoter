@@ -238,20 +238,23 @@ select.tsel{background:var(--ink);color:var(--paper);border:1px solid var(--line
 .book-rv .prv-list{grid-template-columns:1fr}
 @media (min-width:1000px){.book-wrap{grid-template-columns:minmax(0,640px) minmax(0,1fr);gap:48px;align-items:start}.book-rv{border-top:0;padding-top:28px}.book-wrap.solo{grid-template-columns:minmax(0,640px);justify-content:center}}
 .load-note{color:var(--bad-text);font-size:var(--fs-ui);margin:4px 0 0}
-/* chân trang: logo quán, câu chào, nút mạng xã hội */
-footer.foot{border-top:1px solid var(--line);margin-top:24px;padding-block:36px 44px}
-footer.foot .fmark{display:block;height:22px;width:auto}
-footer.foot .fline{margin:16px 0 0;max-width:640px;font-weight:600;font-size:var(--fs-md);line-height:1.5}
-/* nút mạng xã hội: ô vàng 52px, icon đen cho nổi (anh Minh 10/11 chọn phương án A) */
-footer.foot .soc{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-footer.foot .soc a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--paper)}
-footer.foot .soc a:hover,footer.foot .soc a:focus-visible{background:var(--paper);color:var(--ink)}
-footer.foot .soc svg{width:26px;height:26px}
-footer.foot .finfo{margin:14px 0 0;color:var(--concrete);font-size:var(--fs-ui);line-height:1.7}
-footer.foot .finfo a{color:var(--paper)}
-footer.foot .finfo a:hover{color:var(--acid)}
-/* máy tính: thông tin quán sang cột phải; điện thoại giữ nguyên */
-@media (min-width:1000px){footer.foot .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:64px;align-items:start}footer.foot .fmark,footer.foot .fline,footer.foot .soc{grid-column:1}footer.foot .finfo{grid-column:2;grid-row:1 / span 3;margin:0;align-self:center;padding-left:28px;border-left:1px solid var(--line)}}
+/* Compact footer: brand and social links above essential venue details. */
+footer.foot{border-top:1px solid var(--line);margin-top:24px;padding-block:20px 24px}
+footer.foot .ftop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+footer.foot .fmark{display:block;width:clamp(88px,18vw,128px);height:auto;flex-shrink:0}
+footer.foot .soc{display:flex;flex-wrap:wrap;justify-content:flex-end;margin:0}
+footer.foot .soc a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:var(--paper-3);text-decoration:none}
+footer.foot .soc a:hover{color:var(--paper)}
+footer.foot .soc svg{width:20px;height:20px}
+footer.foot .fbody{display:grid;gap:0;margin-top:12px;font-size:var(--fs-ui);line-height:1.6}
+footer.foot .flocation{margin:0;font-style:normal}
+footer.foot .flocation a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--paper-2);text-decoration:none}
+footer.foot .fhours{margin:0;color:var(--paper-3)}
+footer.foot .fcontact{display:flex;align-items:center;gap:20px}
+footer.foot .fcontact a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;color:var(--paper-2);text-decoration:none}
+footer.foot .fbody a:hover{color:var(--acid);text-decoration:underline;text-underline-offset:4px}
+footer.foot a:focus-visible{outline:2px solid var(--acid);outline-offset:2px}
+@media (min-width:700px){footer.foot .fbody{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:24px;align-items:center}}
 .nw{white-space:nowrap}
 .book-help{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:var(--fs-ui);color:var(--concrete)}
 .book-help a,.book-help button{color:var(--paper);font:inherit;font-weight:600;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
@@ -759,8 +762,8 @@ img{max-width:100%}
 
 /* ---------- sửa theo bản soi 10/11 ---------- */
 /* vùng bấm: nới bằng lớp vô hình, hình giữ nguyên. tối thiểu 44px nơi còn chỗ */
-.mark,nav.tabs a,.book-help a,.book-help button,footer.foot .finfo a,.promo-pst,.fly-call,.hbook{position:relative}
-.mark::after,nav.tabs a::after,.book-help a::after,.book-help button::after,footer.foot .finfo a::after,.promo-pst::after,.fly-call::after,.hbook::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+.mark,nav.tabs a,.book-help a,.book-help button,.promo-pst,.fly-call,.hbook{position:relative}
+.mark::after,nav.tabs a::after,.book-help a::after,.book-help button::after,.promo-pst::after,.fly-call::after,.hbook::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
 /* bàn trên sơ đồ: nới theo khoảng trống giữa các bàn (tính trên toạ độ ảnh 2000×870) */
 .tspot::after{content:"";position:absolute;inset:var(--hit,0)}
 .tspot.k-v{--hit:-44% -11%}
@@ -830,10 +833,15 @@ body.paper .tpick-f{border-color:var(--hint-p)}
 
 <footer class="foot" id="siteFoot">
   <div class="wrap">
-    <img class="fmark" src="brand/blk46.svg" alt="BLK46®" width="156" height="22">
-    <p class="fline">hẹn ở 46 mã mây.</p>
-    <p class="finfo">tầng 1, 46 mã mây, hà nội · <a href="https://share.google/SntJEvVotOjQeHLYL" target="_blank" rel="noopener">xem bản đồ</a><br>thứ 5, chủ nhật: <span class="nw">21h – 3h sáng</span><br>thứ 6, thứ 7: <span class="nw">21h – 4h sáng</span> · nghỉ thứ 2, 3, 4<br>hotline <a href="tel:0852839239">0852 839 239</a> · <a href="https://blkmenu.vercel.app" target="_blank" rel="noopener">menu</a></p>
-    <nav class="soc" id="socLinks" aria-label="mạng xã hội của quán"></nav>
+    <div class="ftop">
+      <img class="fmark" src="brand/blk46.svg" alt="BLK46®" width="128" height="18">
+      <nav class="soc" id="socLinks" aria-label="mạng xã hội của quán"></nav>
+    </div>
+    <div class="fbody">
+      <address class="flocation"><a href="https://share.google/SntJEvVotOjQeHLYL" target="_blank" rel="noopener" aria-label="Xem bản đồ: Tầng 1, 46 Mã Mây, Hà Nội">Tầng 1, 46 Mã Mây, Hà Nội <span aria-hidden="true">↗</span></a></address>
+      <p class="fhours">Thứ 5 &amp; CN: <span class="nw">21h - 03h</span><br>Thứ 6 &amp; Thứ 7: <span class="nw">21h - 04h</span></p>
+      <nav class="fcontact" aria-label="liên hệ với quán"><a href="tel:0852839239">0852 839 239</a><a href="https://blkmenu.vercel.app" target="_blank" rel="noopener">Menu ↗</a></nav>
+    </div>
   </div>
 </footer>
 
