@@ -74,8 +74,8 @@
   --display:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --body:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --brand-display:"BT Brik VN","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --fs-2xs:11px;  /* nhãn, tag */
-  --fs-xs:12px;   /* ghi chú, eyebrow */
+  --fs-2xs:12px;  /* nhãn, tag */
+  --fs-xs:13px;   /* ghi chú, eyebrow */
   --fs-sm:13px;   /* nút nhỏ, chip, menu */
   --fs-ui:14px;   /* chữ phụ trong form */
   --fs-body:15px; /* chữ thường */
@@ -878,6 +878,126 @@ body.v-lineup footer.foot{background:var(--ink);color:var(--paper);border-top:4p
 @media (min-width:900px){body.v-lineup .fly{--art:300px;--gap:48px;grid-template-rows:auto 1fr;padding:44px;margin-block:28px 48px;gap:28px var(--gap)}body.v-lineup .fly-intro{grid-column:1;grid-row:1;align-self:end}body.v-lineup .fly-dj{font-size:min(112px,calc((min(100vw,1180px) - 120px - var(--art) - var(--gap)) / var(--f,4)))}body.v-lineup .fly-detail{display:grid;grid-column:1;grid-row:2;gap:16px;align-content:start}body.v-lineup .fly-detail>*{grid-row:auto;grid-column:auto}body.v-lineup .fly-ev{font-size:var(--fs-lead)}body.v-lineup .fly-art{grid-column:2;grid-row:1/span 2;align-self:center}body.v-lineup .fly-pre{font-size:var(--fs-sm)}body.v-lineup .fly-row{font-size:var(--fs-ui)}body.v-lineup .ros{padding-block:32px 56px}}
 @media (hover:hover) and (prefers-reduced-motion:no-preference){body.v-lineup .pc:hover{transform:translateY(-4px)}}
 @media (hover:hover){body.v-lineup .pc:not([disabled]):hover{outline:2px solid var(--accent);outline-offset:2px}}
+/* ---------- unified UI (audit 11/11) ----------
+   một kiểu nút chính (nền đỏ BLK46, chữ trắng), không tô --acid lên nền sáng, viền mảnh 1px,
+   hồ sơ promoter nền trắng, khung ảnh trống hiện chữ cái đầu thay hình bóng người. */
+.cta:not(.cta-line){background:var(--accent);color:var(--accent-on)}
+.cta:not(.cta-line):hover{background:var(--paper);color:var(--ink);filter:none}
+body.paper .cta:not(.cta-line):hover{background:var(--ink);color:var(--paper)}
+.sdlg .sheet-cta,body.paper .tk button.cta[type="submit"],body.paper .cta:not([type="submit"]):not(.cta-line),.mbar-go,.pdlg .btn-acid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--accent);color:var(--accent-on);border:0;font-family:var(--body);font-weight:700;font-size:var(--fs-lead);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;min-height:56px;padding:8px 24px;line-height:1.2;text-align:center;cursor:pointer}
+@media (min-width:700px){body.paper .tk button.cta[type="submit"]{font-size:var(--fs-md);min-height:60px}}
+@media (min-width:900px){.sdlg .sheet-cta{font-size:var(--fs-lead)}}
+.sdlg .sheet-cta:hover,body.paper .tk button.cta[type="submit"]:hover,body.paper .cta:not([type="submit"]):not(.cta-line):hover,.mbar-go:hover,.pdlg .btn-acid:hover{background:var(--ink);color:var(--paper);filter:none}
+.sheet-cta small{display:block;font-weight:400;text-transform:none;letter-spacing:0;font-size:var(--fs-sm);opacity:.92;overflow-wrap:anywhere}
+/* thông báo trên nền sáng: không tô đỏ chói, chỉ một vạch đỏ bên trái */
+body.paper .banner[data-kind="warn"]{border:0;border-left:3px solid var(--accent);background:var(--sheet-2);color:var(--muted-p)}
+body.paper .back:hover{background:none;color:var(--accent)}
+.tk-ev,.tk-vc{background:var(--sheet-2);color:var(--ink);border-bottom:1px solid var(--ink);border-left:3px solid var(--accent)}
+.tk-vc a{color:var(--accent)}
+body.paper .tk .hold-note{background:transparent;color:var(--ink);border-left:3px solid var(--accent);padding:6px 12px}
+body.paper .tk .hold-note:empty{display:none}
+/* hồ sơ promoter: nền trắng, chữ đen, ảnh nằm trên dải đen */
+.sdlg{background:var(--sheet);color:var(--ink)}
+.sdlg :focus-visible{outline-color:var(--accent)}
+.sdlg-x{background:var(--sheet);color:var(--ink)}
+.sdlg-x:hover{background:var(--accent);color:var(--accent-on)}
+.sdlg .sheet-cta{box-shadow:0 0 0 16px var(--sheet)}
+.sheet-pics{background:var(--ink)}
+.sheet-pics.one{grid-template-columns:minmax(0,1fr)}
+.sheet-pics figcaption{color:var(--paper-3)}
+.sheet-name{margin:0;font-family:var(--brand-display);font-style:oblique;font-weight:700;font-size:clamp(36px,10vw,56px);line-height:1.12;letter-spacing:0;overflow-wrap:break-word;text-wrap:balance}
+.sheet.anim .sheet-name{animation:fadein .26s ease-out}
+.sheet-dl{border-top:1px solid var(--ink)}
+.sheet-eb,.sheet-dl dt,.sheet .note,.sheet-back,.sheet .special>span,.sheet-st .l span:first-child,.sheet blockquote span,.sheet-load{color:var(--muted-p)}
+.sheet-st i{background:var(--sheet-ph)}
+.sheet-st i b{background:var(--ink)}
+.sheet .forte span{border-color:var(--ink);color:var(--ink)}
+.sheet .talents span{background:var(--sheet-2);color:var(--ink)}
+@media (min-width:900px){.sheet-pics.one{grid-template-columns:minmax(0,1fr)}.sheet-info{border-left:0}.sheet-name{font-size:clamp(40px,3.4vw,60px)}}
+/* khung ảnh trống: chữ cái đầu tên, chữ Brik trắng trên nền đen */
+.pc-ini,.fr-ini,.tk-ini{position:absolute;inset:0;display:grid;place-items:center;background:var(--ink);color:var(--concrete);font-family:var(--brand-display);font-style:oblique;font-weight:700;line-height:1;letter-spacing:0;user-select:none}
+.pc-ini{font-size:clamp(40px,11vw,60px)}
+.fr-ini{font-size:clamp(64px,18vw,140px)}
+.tk-ini{font-size:var(--fs-d-s)}
+/* thẻ promoter */
+body.v-lineup .pc-ph,body.v-lineup .pc:nth-child(even) .pc-ph,body.v-lineup .pc.full .pc-ph{background:var(--ink);color:var(--frame-mark)}
+body.v-lineup .pc-name{min-height:0}
+body.v-lineup .pc-no{background:var(--paper);color:var(--ink)}
+body.v-lineup .pc.top .pc-no{background:var(--accent);color:var(--accent-on)}
+body.v-lineup .pc.full .pc-no{background:var(--paper);color:var(--ink)}
+.pc-stamp b{background:var(--accent);color:var(--accent-on);border-color:var(--accent)}
+body.v-lineup .ros-swipe{color:var(--ink);font-weight:700}
+@media (max-width:699px){.cards>.pc{flex-basis:min(220px,72vw)}}
+@media (min-width:700px){body.v-lineup .cards.solo{grid-template-columns:repeat(auto-fill,minmax(220px,280px))}}
+/* tờ rơi đêm đang chọn */
+body.v-lineup .fly-art .pic{box-shadow:none}
+body.v-lineup .fly-art.pst .pic{border:0}
+body.v-lineup .fly-row{font-size:var(--fs-md);font-weight:700;font-variant-numeric:tabular-nums}
+body.v-lineup .fly .btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 20px;border:2px solid var(--accent-on);text-decoration:none;text-transform:uppercase;font-weight:700;letter-spacing:.04em}
+body.v-lineup .fly .btn-line:hover{background:var(--accent-on);color:var(--accent);text-decoration:none}
+@media (max-width:699px){body.v-lineup .fly-btns{gap:10px}body.v-lineup .fly .btn-line{width:100%}}
+body.v-lineup .promo-t{font-size:var(--fs-lead)}
+@media (min-width:900px){body.v-lineup .fly-row{font-size:var(--fs-lg)}}
+/* dải đêm trong tuần */
+body.v-lineup .wk-n[aria-pressed="true"] .wk-x{color:var(--paper-3)}
+body.v-lineup .wk-d>*{white-space:nowrap}
+.wk-s{display:none}
+@media (max-width:699px){.wk-d>span:not(.wk-s){display:none}.wk-s{display:inline}}
+/* đặt bàn: viền 1px, ô nhập gạch chân xám, chọn nhanh giờ thành lưới */
+.tk{border-width:1px}
+.tk-row{border-bottom-width:1px}
+.tk-row p:nth-child(2),.tk-row p:nth-child(3){border-width:1px}
+.tk-name{font-family:var(--brand-display);font-style:oblique;font-weight:700}
+body.paper .tk label.f input{border-bottom:1px solid var(--muted-p)}
+body.paper .tk label.f input:focus{border-bottom:2px solid var(--accent);background:transparent}
+body.paper .tk .bsal{border-width:1px;min-height:44px}
+body.paper .tk .bsal:hover:not([aria-checked="true"]){background:var(--sheet-2);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+body.paper .tk .tq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+body.paper .tk .tqb{border-width:1px;min-height:44px;padding:0 4px}
+body.paper .tk .tqb:hover:not(:disabled):not([aria-pressed="true"]){background:var(--sheet-2);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+body.paper .tk .tqb:disabled{opacity:1;color:var(--hint-p);background:var(--sheet-2);border-color:var(--portrait-mark);text-decoration:line-through}
+body.paper .tk .tmap-wrap{border-width:1px}
+body.paper .tk .book-help{border-top:1px solid var(--portrait-mark)}
+body.paper .tk .book-help a:hover,body.paper .tk .book-help button:hover{background:none;color:var(--accent)}
+body.paper .prv-head h2{font-family:var(--brand-display);font-style:oblique;font-weight:700;font-size:clamp(28px,8vw,44px);line-height:1.15}
+body.paper .prv-item,body.paper .prv-item:nth-child(2n),body.paper .prv-item:nth-child(3n){transform:none;border:0;background:var(--sheet-2)}
+body.paper .prv-tags .tag{border-width:1px}
+body.paper .banner:not([data-kind]){background:var(--sheet-2);border:0;border-left:3px solid var(--accent);font-size:var(--fs-xs)}
+/* thanh đặt bàn dính đáy trên điện thoại, hiện khi nút đặt bàn của tờ rơi đã cuộn khuất */
+.mbar{display:none}
+@media (max-width:699px){
+  .mbar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--sheet);border-top:1px solid var(--ink);transform:translateY(110%);visibility:hidden;transition:transform .2s ease,visibility 0s linear .2s}
+  .mbar.on{transform:none;visibility:visible;transition:transform .2s ease,visibility 0s}
+  html.sdlg-on .mbar{visibility:hidden}
+  body.v-lineup footer.foot{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+}
+.mbar-go{flex:1;min-width:0}
+.mbar-tel{flex:0 0 56px;display:grid;place-items:center;height:56px;border:1px solid var(--ink);color:var(--ink);background:var(--sheet)}
+.mbar-tel:hover{background:var(--ink);color:var(--paper)}
+.mbar-tel svg{width:22px;height:22px}
+@media (prefers-reduced-motion:reduce){.mbar,.mbar.on{transition:none}}
+/* ---------- vòng 2 (audit 12/11): bớt đỏ, chữ cái đầu dịu hơn, gợi ý bấm thẻ, ô giờ đến đủ rộng ---------- */
+body.v-lineup .ros-date{color:var(--ink)}
+body.v-lineup .pc-txt{padding:14px 0 0}
+body.v-lineup .pc-txt::after{content:"xem hồ sơ →";content:"xem hồ sơ →"/"";display:block;margin-top:6px;font-size:var(--fs-sm);font-weight:700;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
+body.v-lineup .pc[disabled] .pc-txt::after,body.v-lineup .pc.ghost .pc-txt::after{content:none}
+body.v-lineup .fly-art.pst .pic{box-shadow:0 0 0 1px var(--accent-on)}
+.tk-name{text-wrap:balance}
+.tk-row p{font-family:var(--body);font-weight:700;font-size:var(--fs-lead);letter-spacing:.02em}
+@media (min-width:700px){.tk-row p{font-size:var(--fs-md)}}
+.tk-vc a{text-decoration:underline;text-underline-offset:3px}
+/* giờ đến: bốn nút chọn nhanh luôn đủ chỗ */
+@media (max-width:699px){body.paper .tk .fields>:nth-child(n+5){grid-column:1/-1}body.paper .tk #b_guests{max-width:160px}}
+@media (min-width:700px){body.paper .tk .fields>:nth-child(5){grid-column:span 2}}
+/* hồ sơ chưa có ảnh: khung thấp hơn trên điện thoại */
+@media (max-width:899px){.sheet-pics.one .fr:not(:has(img)){aspect-ratio:16/9}}
+/* điện thoại: chừa chỗ cho thanh đặt bàn, không hiện hai nút đặt bàn cùng lúc */
+@media (max-width:699px){
+  html{scroll-padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+  .mbar-go{white-space:nowrap;padding:8px 12px}
+  html:has(.mbar.on) .hbook{visibility:hidden}
+}
+@media (max-width:359px){body.v-lineup .fly .btn-ink{padding:0 16px;gap:12px}}
 </style>
 </head>
 <body class="v-lineup">
@@ -972,7 +1092,7 @@ function loadSpot(id){
     .catch(()=>{S.big[id]={main:"",alt:""};if(S.reshowSpot)S.reshowSpot(id)});
 }
 const photoSrc=i=>coverId(i)?(""+coverId(i)):"";
-const initials=n=>String(n||"?").trim().split(/\s+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+const initials=n=>String(n||"?").trim().split(/\s+/).map(w=>[...w][0]||"").join("").slice(0,2).toUpperCase();
 const isPublic=i=>i.public===true||!!(i.active!==false&&i.consent&&i.consent.signed&&i.consent.adult);
 
 /* ---------- scoring ---------- */
@@ -1075,8 +1195,19 @@ function setTabs(v){
   document.getElementById("adminTab").hidden=!S.canEdit;
   document.querySelector("nav.tabs").hidden=v==="table";
 }
+/* thanh đặt bàn dính đáy (điện thoại): hiện khi nút đặt bàn của tờ rơi đã cuộn khuất phía trên */
+let mbarIO=null;
+function stopMbar(){if(mbarIO){mbarIO.disconnect();mbarIO=null}}
+function watchMbar(){
+  stopMbar();
+  const bar=document.getElementById("mbar"),anchor=app.querySelector(".fly-btns");
+  if(!bar||!anchor||!("IntersectionObserver" in window))return;
+  bar.classList.toggle("on",anchor.getBoundingClientRect().bottom<0); // dựng lại khi có số liệu mới: giữ nguyên trạng thái, không nháy
+  mbarIO=new IntersectionObserver(entries=>{const en=entries[entries.length-1];bar.classList.toggle("on",!en.isIntersecting&&en.boundingClientRect.top<0)});
+  mbarIO.observe(anchor);
+}
 function render(){
-  const r=route();setTabs(r.view);
+  stopMbar();const r=route();setTabs(r.view);
   if(r.view!=="lineup"){const d=document.getElementById("sdlg");if(d&&d.open){d._nav=true;d.close()}} // rời lineup thì đóng khung hồ sơ
   if(r.view==="book")return renderBook(r.id);
   if(r.view==="voucher")return renderVoucher(r.dow);
@@ -1334,7 +1465,7 @@ function nightsHTML(){
   let k=ws.findIndex(w=>w.k===S.flyWeek);if(k<0)k=ws.findIndex(w=>w.k===isoWeek(sel));if(k<0)k=0;S.flyWeek=ws[k].k;
   const list=ws[k].list,mp=MONTH_POSTERS[list[0].date.slice(0,7)];
   const tab=e=>{const dw=dowOfIso(e.date);
-    return `<button type="button" class="wk-n" data-night="${e.date}" aria-pressed="${e.date===sel}"><span class="wk-d"><b>${ddmm(e.date)}</b> <span>${DAY_FULL[dw]}</span></span> <span class="wk-t">${esc(e.name)}</span></button>`};
+    return `<button type="button" class="wk-n" data-night="${e.date}" aria-pressed="${e.date===sel}"><span class="wk-d"><b>${ddmm(e.date)}</b> <span>${DAY_FULL[dw]}</span><span class="wk-s">${WD_SHORT[dw]}</span></span> <span class="wk-t">${esc(e.name)}</span></button>`};
   return `<section class="wk" id="events" aria-label="các đêm sắp tới">
     <div class="wk-foot">${ws.length>1?`<div class="wk-weeks" role="group" aria-label="chọn tuần">${ws.map(w=>`<button type="button" class="sq" data-week="${w.k}" aria-label="${esc(weekLabel(w,n))}" aria-pressed="${w.k===ws[k].k}">${w.k===isoWeek(n.iso)?"tuần này":esc(weekLabel(w,n))}</button>`).join("")}</div>`:""}
       ${mp?`<button type="button" class="wk-mp" data-pst="month">lịch tháng ${+list[0].date.slice(5,7)}</button>`:""}</div>
@@ -1347,8 +1478,8 @@ function cardHTML(r,td){
   const meta=(r.n?`★ ${fmt1(r.avg)} · hạng ${grade(r)}`:"chưa có hạng")+(ld&&!fl?` · <span class="nw">${loadTile(ld)}</span>`:"");
   return `<button type="button" class="pc${fl?" full":""}${r.rank===1?" top":""}" data-id="${esc(i.id)}" aria-haspopup="dialog" aria-describedby="rosterTitle">
     <span class="pc-tape" aria-hidden="true"></span>
-    <span class="pc-ph">${SIL}${cid?`<img src="${esc(cid)}" alt="" loading="lazy" onerror="this.remove()">`:""}${fl?`<span class="pc-stamp"><b>kín bàn</b></span>`:""}</span>
-    <span class="pc-no">${r.rank?pad2(r.rank):"-"}</span>
+    <span class="pc-ph"><span class="pc-ini" aria-hidden="true">${esc(initials(i.stageName))}</span>${cid?`<img src="${esc(cid)}" alt="" loading="lazy" onerror="this.remove()">`:""}${fl?`<span class="pc-stamp"><b>kín bàn</b></span>`:""}</span>
+    ${r.rank?`<span class="pc-no">${pad2(r.rank)}</span>`:""}
     <span class="pc-txt"><span class="pc-name">${esc(i.stageName)}</span><span class="pc-meta">${meta}</span></span></button>`;
 }
 /* ảnh 3 góc cho tờ hồ sơ.
@@ -1390,21 +1521,22 @@ function sheetHTML(r,ghost){
   const ld=ghost||!r?0:loadOf(date,i.id),full=ld>=LOAD_MAX;
   const q=ghost?null:quoteOf(i.id);
   const eb=ghost?"ví dụ bố cục":`${r.rank?"#"+pad2(r.rank):"chưa có hạng"}${g!=="?"?" · hạng "+g:""}${i.team?" · team "+esc(i.team):""}`;
-  return `<div class="sheet-pics${pics.length<=1?" one":""}" style="--n:${Math.max(1,pics.length)}">${(pics.length?pics:[{}]).map(x=>`<figure><div class="fr">${SIL}${x.src?`<img${x.lq?' class="lq"':""} src="${esc(x.src)}" alt="${esc(i.stageName)}${x.l?", góc "+x.l:""}" onerror="this.remove()">`:""}</div>${x.l?`<figcaption>${x.l}</figcaption>`:""}</figure>`).join("")}</div>
+  return `<div class="sheet-pics${pics.length<=1?" one":""}" style="--n:${Math.max(1,pics.length)}">${(pics.length?pics:[{}]).map(x=>`<figure><div class="fr">${ghost?SIL:`<span class="fr-ini" aria-hidden="true">${esc(initials(i.stageName))}</span>`}${x.src?`<img${x.lq?' class="lq"':""} src="${esc(x.src)}" alt="${esc(i.stageName)}${x.l?", góc "+x.l:""}" onerror="this.remove()">`:""}</div>${x.l?`<figcaption>${x.l}</figcaption>`:""}</figure>`).join("")}</div>
     <div class="sheet-info">
       ${ghost?"":`<button type="button" class="sheet-back" data-x>← xem người khác</button>`}
       <p class="sheet-eb">${eb}</p>
       <h3 class="sheet-name">${esc(i.stageName)}</h3>
       <dl class="sheet-dl">${dl.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
-      <div class="sheet-st" aria-label="chỉ số từ tag khen của khách">${stats.map(([l,v])=>`<div><div class="l"><span>${l}</span><span>${v}/10</span></div><i><b style="width:${v*10}%"></b></i></div>`).join("")}</div>
-      <p class="note">${ghost?"chỉ số tính từ tag khen của khách.":enough?"chỉ số = tỉ lệ lượt chọn tag của khách.":`cần ${MIN_FOR_STATS} lượt chấm trở lên thì chỉ số mới có ý nghĩa.`}</p>
+      ${ghost?"":full?`<p class="sheet-load">${esc(i.stageName)} đã kín bàn ngày ${fmtDate(date)}.</p><a class="sheet-cta" href="#book-${esc(i.id)}" data-ev="${date}" data-change-date>CHỌN NGÀY KHÁC&nbsp;→</a>`
+        :`<p class="sheet-load">ngày ${fmtDate(date)} còn ${LOAD_MAX-ld} chỗ đặt trước</p><a class="sheet-cta" href="#book-${esc(i.id)}" data-ev="${date}">ĐẶT BÀN&nbsp;→<small>cùng ${esc(i.stageName)}</small></a>`}
       ${(i.forte||[]).length?`<div class="special"><span>SỞ TRƯỜNG</span><div class="forte">${i.forte.map(t=>`<span>${esc(t)}</span>`).join("")}</div></div>`:""}
       ${(i.talents||[]).length?`<div class="special"><span>KỸ NĂNG ĐẶC BIỆT</span><div class="talents">${i.talents.map(t=>`<span>${esc(t)}</span>`).join("")}</div></div>`:""}
       ${q?`<blockquote>“${esc(q.comment)}”<span>${starStr(q.stars)} · ${ago(q.createdAt||Date.now())}</span></blockquote>`:""}
-      ${ghost?"":full?`<p class="sheet-load">${esc(i.stageName)} đã kín bàn ngày ${fmtDate(date)}.</p><a class="sheet-cta" href="#book-${esc(i.id)}" data-ev="${date}" data-change-date>CHỌN NGÀY KHÁC&nbsp;→</a>`
-        :`<p class="sheet-load">ngày ${fmtDate(date)} còn ${LOAD_MAX-ld} chỗ đặt trước</p><a class="sheet-cta" href="#book-${esc(i.id)}" data-ev="${date}">ĐẶT BÀN CÙNG ${esc(i.stageName)}&nbsp;→</a>`}
+      <div class="sheet-st" aria-label="chỉ số từ tag khen của khách">${stats.map(([l,v])=>`<div><div class="l"><span>${l}</span><span>${v}/10</span></div><i><b style="width:${v*10}%"></b></i></div>`).join("")}</div>
+      <p class="note">${ghost?"chỉ số tính từ tag khen của khách.":enough?"chỉ số = tỉ lệ lượt chọn tag của khách.":`cần ${MIN_FOR_STATS} lượt chấm trở lên thì chỉ số mới có ý nghĩa.`}</p>
     </div>`;
 }
+const WD_SHORT=["CN","T2","T3","T4","T5","T6","T7"];
 const DAY_FULL=["CHỦ NHẬT","THỨ 2","THỨ 3","THỨ 4","THỨ 5","THỨ 6","THỨ 7"];
 const evDayText=e=>`${WD_FLY[dowOfIso(e.date)]} ${e.date.slice(8)}.${e.date.slice(5,7)}`;
 /* xem poster to: data-pst = ngày của đêm, hoặc "month" cho poster lịch tháng */
@@ -1451,6 +1583,7 @@ function renderLineup(){
   const active=document.activeElement,focusedDetail=previousDetails.find(detail=>detail.contains(active));
   const focusKey=focusedDetail&&focusedDetail.dataset.detailKey;
   const focusTarget=focusKey?(active.matches("summary")?"summary":active.matches(".promo-go")?".promo-go":active.matches(".promo-pst")?".promo-pst":null):null;
+  const mbarFocus=active&&active.closest&&active.closest("#mbar")?(active.matches(".mbar-tel")?".mbar-tel":".mbar-go"):null;
   fetchTonight();
   app.innerHTML=`
   ${banner()}
@@ -1466,10 +1599,10 @@ function renderLineup(){
     </div>
     ${empty&&S.canEdit?`<div class="empty"><b>chưa có promoter nào lên bảng.</b><span>quản lý thêm hồ sơ ở tab quản lý. mỗi người phải tick đã ký đồng ý và đủ 18 tuổi thì mới hiện.</span></div>`:""}
     ${empty&&!S.canEdit?`<div class="empty"><b>lineup đang cập nhật.</b><span>gọi <a href="tel:${HOTLINE}">${HOTLINE_SHOW}</a> để đặt bàn.</span></div>`:""}
-    ${rows.length?`<div class="cards" role="group" aria-label="danh sách promoter, dùng phím mũi tên để đổi">${rows.map(r=>cardHTML(r,tdy)).join("")}</div>`
+    ${rows.length?`<div class="cards${rows.length<=2?" solo":""}" role="group" aria-label="danh sách promoter, dùng phím mũi tên để đổi">${rows.map(r=>cardHTML(r,tdy)).join("")}</div>`
       :loading?`<div class="cards" aria-hidden="true">${Array.from({length:6},()=>`<div class="pc ghost"><span class="pc-ph">${SIL}</span><span class="pc-txt"><span class="pc-name">&nbsp;</span></span></div>`).join("")}</div>`:""}
     ${rows.length?`<details class="ranking-details" data-detail-key="ranking"><summary>cách tính xếp hạng</summary><p class="note grade-note">hạng S/A/B/C/D theo điểm sao đã cân số lượt chấm: ít lượt thì bị kéo về mức trung bình của quán. mỗi promoter nhận tối đa ${LOAD_MAX} bàn đặt trước mỗi đêm; người đã kín vẫn có thể đặt ngày khác.</p></details>`:""}
-  </section>`;
+  </section>${empty||loading?"":`<div class="mbar" id="mbar"><button type="button" class="mbar-go" data-go="book" data-ev="${tdy}">ĐẶT BÀN ĐÊM ${ddmm(tdy)}&nbsp;→</button><a class="mbar-tel" href="tel:${HOTLINE}" aria-label="gọi ${HOTLINE_SHOW}">${ICO_TEL}</a></div>`}`;
   app.querySelectorAll("details[data-detail-key]").forEach(detail=>{
     detail.open=expanded.has(detail.dataset.detailKey);
     if(focusTarget&&detail.dataset.detailKey===focusKey){const target=detail.querySelector(focusTarget);if(target)target.focus({preventScroll:true})}
@@ -1499,6 +1632,8 @@ function renderLineup(){
       if(d){e.preventDefault();cards[Math.min(cards.length-1,Math.max(0,k+d))].focus()}
     };
   });
+  watchMbar();
+  if(mbarFocus){const m=app.querySelector("#mbar "+mbarFocus);if(m)m.focus({preventScroll:true})}
   reshowSheet(rows);
 }
 /* ---------- khung hồ sơ promoter (anh Minh 10/11) ----------
@@ -1812,7 +1947,7 @@ function renderBook(idolId){
   app.innerHTML=`${banner()}<a class="back back-swap" href="#lineup">${anyone?"← về trang chính":"← đổi promoter"}</a>
   <div class="book-wrap${anyone?" solo":""}"><section class="tk" aria-label="${anyone?"đặt bàn ở blk46":`đặt bàn cùng ${esc(i.stageName)}`}">
     ${anyone?`<div class="tk-head"><div class="tk-who"><p class="tk-pre">ĐẶT BÀN Ở</p><h1 class="tk-name">BLK46</h1><p class="tk-meta">quán xếp promoter takecare bàn của bạn.</p></div></div>`
-    :`<div class="tk-head"><div class="tk-face">${SIL}${coverId(i)?`<img src="${esc(coverId(i))}" alt="" onerror="this.remove()">`:""}</div>
+    :`<div class="tk-head"><div class="tk-face"><span class="tk-ini" aria-hidden="true">${esc(initials(i.stageName))}</span>${coverId(i)?`<img src="${esc(coverId(i))}" alt="" onerror="this.remove()">`:""}</div>
       <div class="tk-who"><p class="tk-pre">ĐẶT BÀN CÙNG</p><h1 class="tk-name">${esc(i.stageName)}</h1><p class="tk-meta">${tkMeta}</p></div></div>`}
     <div class="tk-row"><p id="tkDay"></p><p id="tkTime"></p><p>TẦNG 1, 46 MÃ MÂY</p></div>
     <p class="tk-ev" id="tkEv" hidden></p>
