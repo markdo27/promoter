@@ -1,0 +1,10 @@
+{
+  "name": "promoter-booking-qa",
+  "private": true,
+  "scripts": {
+    "test": "node regression.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.65.0"
+  }
+}

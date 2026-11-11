@@ -1,0 +1,137 @@
+[
+  {
+    "width": 390,
+    "layout": {
+      "width": 390,
+      "scrollWidth": 390,
+      "display": "\"BT Brik\", \"Arial Black\", sans-serif",
+      "body": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "rosterY": 1153.984375,
+      "heading": "LADIES NIGHT",
+      "fonts": [
+        {
+          "family": "Yellowtail",
+          "status": "unloaded",
+          "weight": "400"
+        },
+        {
+          "family": "Yellowtail",
+          "status": "loaded",
+          "weight": "400"
+        },
+        {
+          "family": "BT Brik",
+          "status": "loaded",
+          "weight": "700"
+        }
+      ]
+    },
+    "errors": [],
+    "network": [],
+    "axe": [],
+    "bookingAxe": []
+  },
+  {
+    "width": 768,
+    "layout": {
+      "width": 768,
+      "scrollWidth": 768,
+      "display": "\"BT Brik\", \"Arial Black\", sans-serif",
+      "body": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "rosterY": 1063.359375,
+      "heading": "LADIES NIGHT",
+      "fonts": [
+        {
+          "family": "Yellowtail",
+          "status": "unloaded",
+          "weight": "400"
+        },
+        {
+          "family": "Yellowtail",
+          "status": "loaded",
+          "weight": "400"
+        },
+        {
+          "family": "BT Brik",
+          "status": "loaded",
+          "weight": "700"
+        }
+      ]
+    },
+    "errors": [],
+    "network": [],
+    "axe": [],
+    "bookingAxe": []
+  },
+  {
+    "width": 1280,
+    "layout": {
+      "width": 1280,
+      "scrollWidth": 1280,
+      "display": "\"BT Brik\", \"Arial Black\", sans-serif",
+      "body": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "rosterY": 1073.015625,
+      "heading": "LADIES NIGHT",
+      "fonts": [
+        {
+          "family": "Yellowtail",
+          "status": "unloaded",
+          "weight": "400"
+        },
+        {
+          "family": "Yellowtail",
+          "status": "loaded",
+          "weight": "400"
+        },
+        {
+          "family": "BT Brik",
+          "status": "loaded",
+          "weight": "700"
+        }
+      ]
+    },
+    "errors": [],
+    "network": [],
+    "axe": [],
+    "bookingAxe": []
+  },
+  {
+    "width": 1440,
+    "layout": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "display": "\"BT Brik\", \"Arial Black\", sans-serif",
+      "body": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "rosterY": 1073.015625,
+      "heading": "LADIES NIGHT",
+      "fonts": [
+        {
+          "family": "Yellowtail",
+          "status": "unloaded",
+          "weight": "400"
+        },
+        {
+          "family": "Yellowtail",
+          "status": "loaded",
+          "weight": "400"
+        },
+        {
+          "family": "BT Brik",
+          "status": "loaded",
+          "weight": "700"
+        }
+      ]
+    },
+    "errors": [],
+    "network": [],
+    "axe": [],
+    "bookingAxe": []
+  },
+  {
+    "production": true,
+    "status": 200,
+    "title": "BLK46 · chọn promoter, đặt bàn · Tầng 1, 46 Mã Mây, Hà Nội",
+    "cards": 0,
+    "text": "BLK46 PRESENTS\n\nHOUSE PARTY\n\nđang tải lineup…"
+  }
+]

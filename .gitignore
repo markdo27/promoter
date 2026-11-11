@@ -3,3 +3,4 @@ node_modules/
 *-debug.log
 *.json.key
 sa.json
+.qa/

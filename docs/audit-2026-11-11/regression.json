@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Header booking follows next open night on Wednesday",
+    "passed": true
+  },
+  {
+    "name": "Selected night reaches header and promoter booking",
+    "passed": true
+  },
+  {
+    "name": "Changing promoter preserves guest information and typed date",
+    "passed": true
+  },
+  {
+    "name": "Full-date spelling preserves the same table through promoter swap",
+    "passed": true
+  },
+  {
+    "name": "Radio group supports focus, Arrow and Home/End",
+    "passed": true
+  },
+  {
+    "name": "Period filter keeps keyboard focus",
+    "passed": true
+  },
+  {
+    "name": "Optional map summary follows selection and clearing",
+    "passed": true
+  },
+  {
+    "name": "Full promoter remains browsable and only full-date submit is blocked",
+    "passed": true
+  },
+  {
+    "name": "Vietnamese event title switches as a whole to sans",
+    "passed": true
+  },
+  {
+    "name": "Blocked display font has a usable fallback without overflow",
+    "passed": true
+  },
+  {
+    "name": "After-midnight booking uses a valid civil date",
+    "passed": true
+  },
+  {
+    "name": "After-midnight availability includes the active previous night",
+    "passed": true
+  },
+  {
+    "name": "Very long DJ name remains inside a narrow viewport",
+    "passed": true
+  }
+]

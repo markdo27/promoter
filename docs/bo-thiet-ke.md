@@ -42,12 +42,14 @@ Cách tự kiểm: chạy `node tools/kiem-token.cjs`. Lệnh này không cần 
 Hai chỗ web đang lệch guideline:
 
 - `--concrete` là #8a8880, còn guideline ghi #888888. Hai mã gần như không phân biệt được bằng mắt, nên em giữ nguyên.
-- Guideline dùng BT Brik và Helvetica Now. Web dùng Anton và Be Vietnam Pro, còn BT Brik chỉ đứng dự phòng. Em chưa kiểm BT Brik có đủ dấu tiếng Việt hay không.
+- Tên đêm Latin dùng BT Brik 3XL Oblique từ cùng tệp đang triển khai trên blkmenu. Chữ thường và tiêu đề tiếng Việt dùng `"Helvetica Neue", Helvetica, Arial, sans-serif`, đúng font stack thực tế của blkmenu.
 
 ## Chữ
 
-- `--display` (Anton) luôn in hoa, dùng cho tiêu đề và nút lớn.
-- `--body` (Be Vietnam Pro) dùng cho chữ thường.
+- `--brand-display` là BT Brik 3XL Oblique, nét nghiêng thật, độ đậm 700; dùng cho tên đêm Latin.
+- `--display` và `--body` dùng `"Helvetica Neue", Helvetica, Arial, sans-serif`. Tiêu đề và nút lớn dùng độ đậm 700; chữ thường dùng 400.
+- BT Brik thiếu phần lớn dấu tiếng Việt. Tên đêm có ký tự ngoài ASCII chuyển cả dòng sang sans, không trộn từng glyph. Chữ ký “promoter” cạnh logo giữ Yellowtail.
+- Font được tải từ `https://blkmenu.vercel.app/assets/fonts/Brik-3XL-Oblique.ttf`, có CORS. Không chép binary thương mại từ repo blkmenu private vào repo Promoter public. Nếu nguồn tải không có, dùng sans dự phòng; cần giữ đường dẫn này khi triển khai lại blkmenu.
 
 | Token | Cỡ | Dùng cho |
 |---|---|---|
@@ -62,7 +64,7 @@ Hai chỗ web đang lệch guideline:
 | `--fs-xl` | 24px | |
 | `--fs-2xl` | 28px | |
 
-Cỡ chữ display (Anton) cho số, tên đêm và tiêu đề khối:
+Cỡ chữ display cho số, tên đêm và tiêu đề khối:
 
 | Token | Cỡ | Dùng cho |
 |---|---|---|
@@ -126,11 +128,11 @@ Trang lineup không còn nền giấy. Từ trên xuống có ba khối:
 |---|---|---|
 | Tờ flyer | `.fly` | Nền vàng acid tràn hết bề ngang, chữ đen. Đây là cặp màu "yellow canvas" trong guideline. Hiện đêm đang chọn: tên đêm, cuống vé `.fly-row`, nút `.btn-ink`, ô ưu đãi `.promo`. |
 | Dải đêm | `.wk` | Nền đen, mỗi tuần 4 ô `.wk-n`. Bấm một ô thì tờ flyer đổi sang đêm đó và nút chính thành GIỮ BÀN ĐÊM NÀY. |
-| Lineup | `.ros` | Nền đen, thẻ ảnh `.pc` nền giấy dán băng keo vàng, hơi nghiêng. Thẻ hạng 1 nền vàng (`.pc.top`), thẻ kín bàn nền tối có dấu (`.pc.full`). Dưới 700px các thẻ xếp một hàng vuốt ngang. |
+| Lineup | `.ros` | Nền đen, thẻ ảnh `.pc` nền giấy đặt thẳng. Thẻ hạng 1 có đường vàng ở đáy (`.pc.top`), thẻ kín bàn nền tối có nhãn và vẫn mở được (`.pc.full`). Dưới 700px vuốt ngang; từ 700px ba cột, từ 1100px bốn cột. |
 
-Tên đêm (`.fly-dj`) không dùng token cỡ chữ. JS tính bề rộng dòng dài nhất khi ngắt tên làm 2 dòng (`flyFit`, theo bảng bề rộng chữ Anton `AW`) rồi ghi vào `--f`. CSS chia bề rộng cột cho `--f`, nên tên nào cũng vừa 2 dòng. Trần là 132px trên điện thoại và 168px trên máy tính.
+Tên đêm (`.fly-dj`) không dùng token cỡ chữ. `flyFit` đo font thực tế bằng canvas, tìm cách chia hai dòng cân nhau rồi ghi vào `--f`. Đo lại sau khi font tải xong, có tính phần nhô của chữ nghiêng. Trần là 84px trên điện thoại và 112px trên máy tính; tên dài có thể xuống thêm dòng để không tràn.
 
-Tấm poster bên phải tờ flyer (`.fly-art`) chỉ vẽ từ 1024px. Dưới mức đó JS không tạo thẻ ảnh, nên điện thoại không tải file poster.
+Tấm poster bên phải tờ flyer (`.fly-art`) chỉ vẽ từ 1024px, tối đa 320px và đặt thẳng. Dưới mức đó JS không tạo thẻ ảnh, nên điện thoại không tải file poster.
 
 Mũi tên và ống nghe là hình vẽ SVG (`ICO_ARW`, `ICO_TEL`), không dùng ký tự mũi tên.
 
@@ -150,3 +152,11 @@ Mũi tên và ống nghe là hình vẽ SVG (`ICO_ARW`, `ICO_TEL`), không dùng
 5. Chữ thân viết thường, tiêu đề in hoa, không dùng dấu chấm than.
 6. Chữ thường cần độ tương phản từ 4,5:1 trở lên. `--hint-p` đã đậm lên #6e6a61, đạt 4,9:1 trên vé.
 7. Mọi thay đổi nhìn thấy được đều phải có ảnh xem trước trên máy tính 1280 và điện thoại 390 trước khi merge.
+
+## Đợt audit UX/UI 11/11/2026
+
+- Bỏ lớp nhiễu toàn màn, băng keo và góc xoay trên thẻ; desktop lớn dùng bốn cột, tablet ba cột, mobile vẫn vuốt ngang. Hạng là nhãn phụ, ảnh và tên giữ vai trò chính.
+- Hero giữ một nút đặt bàn chính. Chọn promoter, menu, hotline và voucher có trọng lượng nhẹ hơn.
+- Sơ đồ bàn là phần tùy chọn gập lại. Danh xưng vẫn theo nghiệp vụ hiện có, hỗ trợ nhóm radio bằng bàn phím.
+- Ngày đang xem đi theo nút đặt bàn và tình trạng promoter. Thẻ kín bàn vẫn mở hồ sơ để chọn ngày khác; đổi promoter giữ thông tin khách đã nhập.
+- Sau nửa đêm, hero có thể nói về đêm bắt đầu hôm trước; ngày giờ form vẫn dùng ngày dân sự Việt Nam theo quy tắc giữ bàn hiện có.
