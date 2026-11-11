@@ -34,42 +34,42 @@
   /* BỘ THIẾT KẾ DÙNG CHUNG (docs/bo-thiet-ke.md). sửa giao diện thì lấy từ đây, đừng gõ mã màu hay cỡ chữ mới.
      kiểm: node tools/kiem-token.cjs */
   /* màu gốc BLK46, brand guideline V1.0 */
-  --ink:#100E0E;        /* Neutral stage for the red event artwork. */
-  --paper:#F0ECE1;      /* Distressed Paper: chữ trên nền tối, nền giấy */
-  --acid:#F4837B;       /* Light red for focus, text and existing dark controls. */
-  --accent:#B8332C;     /* Primary action; ivory text clears AA contrast. */
-  --accent-on:#FBF7F0;
-  --focus-wash:rgba(184,51,44,.10);
-  --stage-line:rgba(251,247,240,.4);
-  --portrait:#DFD9CC;
-  --portrait-mark:#B1A798;
+  --ink:#0A0A0A;        /* Neutral black for text and dark surfaces. */
+  --paper:#FFFFFF;     /* White surfaces and text on dark backgrounds. */
+  --acid:#FF3333;      /* Bright red for focus and emphasis on black. */
+  --accent:#E20810;    /* Brand red; white text clears AA contrast. */
+  --accent-on:#FFFFFF;
+  --focus-wash:rgba(226,8,16,.10);
+  --stage-line:rgba(255,255,255,.4);
+  --portrait:#E8E8E8;
+  --portrait-mark:#A3A3A3;
   --bad:#E20810;        /* Vibrant Red: viền lỗi */
-  --concrete:#8a8880;   /* Concrete Gray: chữ phụ trên nền tối (guideline #888888, web giữ #8a8880) */
-  --idol-pink:#D8D4C9;  /* Keep the signature within the neutral palette. */
+  --concrete:#999999;   /* Secondary text on dark surfaces. */
+  --idol-pink:#FFFFFF;  /* Legacy token name; signature stays white. */
   --white:#fff;         /* chỉ 3 chỗ: tiêu đề quản lý, nút đổi người, nút ưu đãi khi rê chuột */
   /* nền tối */
-  --card:#191616;
-  --card-2:#211C1C;
-  --frame:#292323;      /* Empty portraits stay quiet on the dark canvas. */
-  --frame-mark:#534747;
-  --line:rgba(240,236,225,.14);
-  --paper-2:#d8d4c9;    /* chữ phụ sáng trên nền tối */
-  --paper-3:#b9b5aa;    /* nhãn nhỏ trên nền tối */
+  --card:#171717;
+  --card-2:#222222;
+  --frame:#292929;      /* Neutral placeholders on dark surfaces. */
+  --frame-mark:#555555;
+  --line:rgba(255,255,255,.14);
+  --paper-2:#D6D6D6;    /* Secondary text on dark surfaces. */
+  --paper-3:#B8B8B8;    /* Small labels on dark surfaces. */
   /* nền giấy (lineup, đặt bàn, voucher) */
-  --sheet:#F7F4EC;      /* vé, thẻ đêm */
-  --sheet-2:#FBF9F3;    /* mẩu đánh giá */
-  --sheet-ph:#d9d4c7;   /* khung ảnh trống trên giấy */
-  --sheet-ph-mark:#c3bdae;
-  --muted-p:#4a4842;    /* chữ phụ trên giấy */
-  --hint-p:#6e6a61;     /* chữ gợi ý trong ô nhập: 4,9:1 trên vé, 4,6:1 trên giấy */
+  --sheet:#FFFFFF;     /* Tickets, forms and portrait cards. */
+  --sheet-2:#F5F5F5;    /* Secondary light surface. */
+  --sheet-ph:#DEDEDE;   /* Empty portrait on white. */
+  --sheet-ph-mark:#BDBDBD;
+  --muted-p:#444444;    /* Secondary text on white. */
+  --hint-p:#666666;     /* Input hints on light surfaces. */
   /* trạng thái */
   --bad-text:#ff6a6f;   /* chữ lỗi trên nền tối */
   --bad-p:#b3000b;      /* chữ lỗi trên giấy */
   --good:#7fd18b;
   /* sơ đồ bàn */
-  --tbl:#8a4a3a;
-  --tbl-taken:#1c0f0c;
-  --tbl-taken-edge:#6b4a40;
+  --tbl:#666666;
+  --tbl-taken:#1A1A1A;
+  --tbl-taken-edge:#555555;
   /* chữ */
   --display:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --body:"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -151,8 +151,8 @@ h1.display.admin-title{font-size:clamp(26px,4.8vw,53px);line-height:1.2;color:va
 .card.top .rank{color:var(--ink);text-shadow:none;background:var(--acid);padding:0 6px 2px}
 .photo{aspect-ratio:3/4;width:100%;max-width:100%;background:var(--card-2);position:relative;overflow:hidden}
 .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.15) contrast(1.05)}
-.photo .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:var(--fs-d-xl);color:rgba(240,236,225,.16);
-  background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(240,236,225,.04) 14px 15px)}
+.photo .ph{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:var(--fs-d-xl);color:rgba(255,255,255,.16);
+  background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.04) 14px 15px)}
 .card .body{padding:12px 12px 14px;display:grid;gap:6px;min-width:0}
 .name{font-family:var(--display);font-size:var(--fs-2xl);line-height:1;text-transform:uppercase;letter-spacing:.01em;overflow-wrap:anywhere}
 .muted{color:var(--concrete);font-size:var(--fs-xs)}
@@ -278,7 +278,7 @@ footer.foot a:focus-visible{outline:2px solid var(--acid);outline-offset:2px}
 .step h3{margin:0;font-family:var(--display);font-weight:400;font-size:var(--fs-d-s);text-transform:uppercase;line-height:1}
 .step h3 span{color:var(--acid)}
 .codeinput{font-family:var(--display);font-size:var(--fs-d-l);letter-spacing:.2em;text-transform:uppercase;background:transparent;border:0;border-bottom:2px solid var(--paper);padding:4px 0;width:100%;max-width:320px}
-.codeinput::placeholder{color:rgba(240,236,225,.25)}
+.codeinput::placeholder{color:rgba(255,255,255,.25)}
 .picker{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
 .pick{background:var(--card);border:1px solid var(--line);padding:0;cursor:pointer;text-align:left;display:grid}
 .pick .photo{aspect-ratio:1/1}
@@ -327,7 +327,7 @@ h1.display.rate-name{font-size:clamp(44px,8vw,80px);line-height:1.25;margin:0 0 
 .usage{border:1px solid var(--line);padding:12px 14px;margin:14px 0 4px;display:grid;gap:8px}
 .usage .u-row{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline}
 .usage .u-row b{font-family:var(--display);font-size:var(--fs-xl);color:var(--paper);font-weight:400;margin-right:4px}
-.usage .u-bar{height:8px;background:rgba(240,236,225,.1);position:relative;overflow:hidden}
+.usage .u-bar{height:8px;background:rgba(255,255,255,.1);position:relative;overflow:hidden}
 .usage .u-bar i{position:absolute;inset:0 auto 0 0;background:var(--acid)}
 .usage .u-bar.warn i{background:var(--bad-text)}
 .usage .note{margin:0}
@@ -373,7 +373,7 @@ label.f,div.f{display:grid;gap:4px;align-content:start;font-size:var(--fs-xs);co
 .tmap img{width:100%;height:auto;display:block}
 .tspot{position:absolute;padding:0;border:0;background:transparent;cursor:pointer;border-radius:8px;transition:background .15s,box-shadow .15s}
 .tspot.round{border-radius:50%}
-.tspot:hover{box-shadow:0 0 0 2px rgba(240,236,225,.6)}
+.tspot:hover{box-shadow:0 0 0 2px rgba(255,255,255,.6)}
 .tspot:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
 .tspot.taken{background:rgba(0,0,0,.74);cursor:not-allowed;box-shadow:none}
 .tspot.sel{background:rgba(237,208,41,.28);box-shadow:0 0 0 3px var(--acid)}
@@ -596,7 +596,7 @@ html.sdlg-on{overflow:hidden;scrollbar-gutter:stable}
 @media (min-width:900px){.sheet-st{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}}
 .sheet-st .l{display:flex;justify-content:space-between;gap:8px;font-family:var(--display);font-size:var(--fs-ui);letter-spacing:.05em}
 .sheet-st .l span:first-child{color:var(--paper-3)}
-.sheet-st i{display:block;height:3px;background:rgba(240,236,225,.16);margin-top:4px;position:relative}
+.sheet-st i{display:block;height:3px;background:rgba(255,255,255,.16);margin-top:4px;position:relative}
 .sheet-st i b{position:absolute;inset:0 auto 0 0;background:var(--acid)}
 .sheet .note{margin:0;color:var(--concrete)}
 .sheet blockquote{margin:0;font-size:var(--fs-md);line-height:1.45;font-weight:500;overflow-wrap:anywhere}
@@ -809,7 +809,7 @@ body.paper .tpick-f{border-color:var(--hint-p)}
 .ranking-details{margin-top:16px;font-size:var(--fs-xs);color:var(--paper-3)}
 .ranking-details summary{cursor:pointer;min-height:44px;align-content:center}
 .ranking-details .grade-note{margin:0 0 12px}
-/* Editorial nightlife: paper schedule, red event panel and a light portrait roster. */
+/* White schedule and roster, brand-red event panel, black header and footer. */
 body.v-lineup{background:var(--paper);color:var(--ink);color-scheme:light}
 body.v-lineup header.top{color:var(--paper)}
 body.v-lineup :focus-visible{outline-color:var(--accent)}

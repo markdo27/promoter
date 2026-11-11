@@ -1,6 +1,6 @@
 ﻿# Bộ thiết kế web BLK46
 
-Áp dụng cho Promoter trên Vercel từ đợt thiết kế lại ngày 11/11/2026. Trang chính dùng giấy ngà, mảng đỏ và đen theo bố cục poster biên tập. Các form và cửa sổ hồ sơ giữ nền riêng; màu trang chính được giới hạn trong `body.v-lineup`.
+Áp dụng cho Promoter trên Vercel từ ngày 11/11/2026. Bảng màu được chốt lại thành trắng, đỏ BLK46 và đen theo phản hồi của người dùng. Các bề mặt phụ dùng xám trung tính; bỏ tông ngà, be và nâu ở trang chính, biểu mẫu và hồ sơ.
 
 ## Nguồn và kiểm tra
 
@@ -13,32 +13,32 @@
 
 | Token | Mã | Vai trò |
 | --- | --- | --- |
-| `--ink` | #100E0E | Nền đen than, chữ trên nền giấy |
-| `--paper` | #F0ECE1 | Nền giấy ngà của trang chính, chữ trên nền tối |
-| `--accent` | #B8332C | Khối đêm đang chọn, nhãn thứ tự và nút đặt bàn trên thanh đầu |
-| `--accent-on` | #FBF7F0 | Chữ trên nền đỏ chính |
-| `--acid` | #F4837B | Đỏ sáng cho chữ nhấn, tiêu điểm và trạng thái chọn trên nền tối; tên token giữ tương thích mã cũ |
-| `--focus-wash` | rgba(184,51,44,.10) | Nền nhẹ khi ô nhập được chọn |
-| `--stage-line` | rgba(251,247,240,.4) | Nét phân cách trên khối đỏ |
-| `--portrait`, `--portrait-mark` | #DFD9CC, #B1A798 | Nền và hình dự phòng khi promoter chưa có ảnh |
-| `--idol-pink` | #D8D4C9 | Chữ ký promoter, tên token giữ tương thích |
-| `--card`, `--card-2` | #191616, #211C1C | Bề mặt tối phụ |
-| `--frame`, `--frame-mark` | #292323, #534747 | Ảnh đại diện dự phòng |
-| `--paper-2`, `--paper-3` | #d8d4c9, #b9b5aa | Chữ phụ trên nền tối |
-| `--line` | rgba(240,236,225,.14) | Đường phân cách |
-| `--sheet`, `--sheet-2` | #F7F4EC, #FBF9F3 | Nền vé, form và đánh giá |
-| `--muted-p`, `--hint-p` | #4a4842, #6e6a61 | Chữ phụ và gợi ý trên nền giấy |
+| `--ink` | #0A0A0A | Nền đen, chữ trên nền trắng |
+| `--paper` | #FFFFFF | Nền trắng của trang chính, chữ trên nền tối |
+| `--accent` | #E20810 | Khối đêm đang chọn, nhãn thứ tự và nút đặt bàn trên thanh đầu |
+| `--accent-on` | #FFFFFF | Chữ trên nền đỏ chính |
+| `--acid` | #FF3333 | Đỏ sáng cho chữ nhấn, tiêu điểm và trạng thái chọn trên nền tối; tên token giữ tương thích mã cũ |
+| `--focus-wash` | rgba(226,8,16,.10) | Nền nhẹ khi ô nhập được chọn |
+| `--stage-line` | rgba(255,255,255,.4) | Nét phân cách trên khối đỏ |
+| `--portrait`, `--portrait-mark` | #E8E8E8, #A3A3A3 | Nền và hình dự phòng khi promoter chưa có ảnh |
+| `--idol-pink` | #FFFFFF | Chữ ký promoter, tên token giữ tương thích |
+| `--card`, `--card-2` | #171717, #222222 | Bề mặt tối phụ |
+| `--frame`, `--frame-mark` | #292929, #555555 | Ảnh đại diện dự phòng |
+| `--paper-2`, `--paper-3` | #D6D6D6, #B8B8B8 | Chữ phụ trên nền tối |
+| `--line` | rgba(255,255,255,.14) | Đường phân cách |
+| `--sheet`, `--sheet-2` | #FFFFFF, #F5F5F5 | Nền vé, form và đánh giá |
+| `--muted-p`, `--hint-p` | #444444, #666666 | Chữ phụ và gợi ý trên nền trắng |
 | `--bad`, `--bad-text`, `--bad-p` | #E20810, #ff6a6f, #b3000b | Lỗi, dùng kèm nội dung giải thích |
 | `--good` | #7fd18b | Trạng thái thành công |
 
-Không dùng mảng vàng lớn. Trang chính có ba cấp bề mặt: lịch và danh sách promoter sáng, đêm đang chọn đỏ, thanh đầu và footer đen. Trên khối đỏ, nút đặt bàn dùng nền `--accent-on` và chữ `--ink`. Chữ nhấn trên nền tối dùng `--acid`; form giữ các token tương thích cũ.
+Không dùng bề mặt vàng, ngà hoặc nâu. Trang chính có ba cấp bề mặt: lịch và danh sách promoter trắng, đêm đang chọn đỏ, thanh đầu và footer đen. Trên khối đỏ, nút đặt bàn dùng nền `--accent-on` và chữ `--ink`. Chữ nhấn trên nền tối dùng `--acid`; form giữ các tên token tương thích cũ.
 
 ## Chữ
 
 - Tên đêm và tiêu đề chọn promoter dùng BT Brik 3XL Oblique từ blkmenu, đã bổ sung 95 glyph tiếng Việt bằng VinaDấu. Ngày nhỏ cạnh tiêu đề dùng sans để dễ đọc. Font WOFF2 nằm ở `public/fonts/BT-Brik-3XL-Oblique-VI.woff2`.
 - `--brand-display`: `"BT Brik VN", "Helvetica Neue", Helvetica, Arial, sans-serif`, nghiêng, đậm 700.
 - `--display` và `--body`: `"Helvetica Neue", Helvetica, Arial, sans-serif`.
-- Chữ ký promoter giữ Yellowtail; màu chuyển về trung tính.
+- Chữ ký promoter giữ Yellowtail, màu trắng.
 - Tiêu đề phân rã Unicode chuẩn hóa NFC, đo bằng canvas với font thực tế qua `flyFit`; tên Việt có giãn dòng 1,28. Khi font không tải được, dùng sans dự phòng.
 - Chữ thường lấy thang `--fs-*` từ 11px đến 28px; thang display `--fs-d-*` từ 22px đến 84px. Tiêu đề lớn dùng phép tính đáp ứng, không gõ thêm cỡ px rời rạc.
 - Giữ nguyên outline gốc, thông tin nguồn và giấy phép. Xem `tools/fonts/README.md`, `public/fonts/NOTICE.md`.
@@ -47,9 +47,9 @@ Không dùng mảng vàng lớn. Trang chính có ba cấp bề mặt: lịch v�
 
 1. Thanh đầu trang: logo, menu và hotline trên máy tính, nút đặt bàn luôn dùng được khi cuộn.
 2. Lịch: chọn tuần rồi chọn một trong bốn đêm. Điện thoại chỉ hiện ngày và thứ; máy tính thêm tên đêm. Không lặp giờ, ưu đãi và nhãn có poster trong từng ô.
-3. Đêm đang chọn: khối đỏ chứa tên đêm lớn, ngày, giờ, một mô tả ngắn, nút đặt bàn sáng và đường dẫn chọn promoter. Poster có khung ngà và bóng đen cứng, giữ đủ ảnh trên mọi kích thước.
+3. Đêm đang chọn: khối đỏ chứa tên đêm lớn, ngày, giờ, một mô tả ngắn, nút đặt bàn sáng và đường dẫn chọn promoter. Poster có khung trắng và bóng đen cứng, giữ đủ ảnh trên mọi kích thước.
 4. Ưu đãi: đóng mặc định trong `<details>`, mở mới thấy điều kiện và nút nhận voucher.
-5. Promoter: thẻ giấy sáng có nhãn thứ tự đỏ hoặc đen; ảnh và tên là nội dung chính, điểm sao là thông tin phụ. Không thêm ảnh giả khi hồ sơ chưa có ảnh. Cách tính xếp hạng và giới hạn nhận bàn nằm trong phần mở rộng.
+5. Promoter: thẻ trắng có nhãn thứ tự đỏ hoặc đen; ảnh và tên là nội dung chính, điểm sao là thông tin phụ. Không thêm ảnh giả khi hồ sơ chưa có ảnh. Cách tính xếp hạng và giới hạn nhận bàn nằm trong phần mở rộng.
 6. Chân trang: giữ bố cục gọn của PR #3, nền đen và một nét đỏ phía trên. Địa chỉ, giờ mở cửa, liên hệ và mạng xã hội vẫn hiện đủ.
 
 Poster chọn theo thứ tự: poster của đúng đêm đang xem, poster ưu đãi định kỳ cùng thứ, poster lịch tháng có nhãn rõ, ảnh quán, hình dự phòng. Không lấy poster của một ngày khác để minh họa ngày đang chọn. Poster giữ đủ ảnh, bấm để xem lớn.
@@ -58,9 +58,9 @@ Poster chọn theo thứ tự: poster của đúng đêm đang xem, poster ưu �
 
 ## Nút và trạng thái
 
-- `.btn-ink` trên khối đỏ: nền ngà, chữ đen; `.btn-acid`, `.hbook` và các form giữ nút đỏ trầm. Tên class giữ để tương thích mã cũ.
+- `.btn-ink` trên khối đỏ: nền trắng, chữ đen; `.btn-acid`, `.hbook` và các form dùng nút đỏ BLK46. Tên class giữ để tương thích mã cũ.
 - `.wk-n`: chọn đêm, có `aria-pressed`; đêm đang chọn nền đen, ngày đỏ sáng. Tên truy cập lấy từ nội dung hiển thị.
-- `.sq`: chọn tuần bằng gạch dưới; khoảng xếp hạng đang chọn có nền đen trên giấy.
+- `.sq`: chọn tuần bằng gạch dưới; khoảng xếp hạng đang chọn có nền đen trên trắng.
 - `.promo summary`, `.ranking-details summary`: mở bằng chuột và bàn phím.
 - `.pc`: mở hồ sơ, kể cả khi promoter kín bàn để khách có thể đặt ngày khác.
 - `.pdlg`: xem poster; `.sdlg`: hồ sơ promoter. Các thao tác đặt bàn giữ ngày đang chọn.
