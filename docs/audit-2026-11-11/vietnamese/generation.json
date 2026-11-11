@@ -1,0 +1,1147 @@
+{
+  "engine": "VinaDau",
+  "engineCommit": "7f0a11fc950773d2e65af7bfef6fee51cf0ae6a2",
+  "source": "Brik-3XL-Oblique.ttf",
+  "sourceSha256": "f9d231181c4ec6159ad2e47058a4dc11968b664564b29396b4364375f45619ec",
+  "generated": 95,
+  "existing": 40,
+  "vietnameseCoverage": 135,
+  "errors": [],
+  "losses": [
+    {
+      "id": "hinting"
+    }
+  ],
+  "accentSources": {
+    "acute": "font-native",
+    "grave": "font-native",
+    "circumflex": "font-native",
+    "tilde": "font-native",
+    "hookAbove": "adaptive-library",
+    "dotBelow": "font-native",
+    "breve": "font-native",
+    "horn": "adaptive-library"
+  },
+  "accentMatch": {
+    "matchedFamily": "Alfa Slab One",
+    "score": 0.1870555871217599,
+    "method": "self-sampled",
+    "credits": [
+      {
+        "family": "Alfa Slab One",
+        "style": "Regular",
+        "copyright": "Copyright 2016 The Alfa Slab One Project Authors (http://www.jmsole.cl | info@jmsole.cl), with Reserved Font Name \"Alfa Slab\".",
+        "licence": "SIL Open Font License",
+        "licenceURL": "http://scripts.sil.org/OFL"
+      },
+      {
+        "family": "Protest Strike",
+        "style": "Regular",
+        "copyright": "Copyright 2020 The Protest Project Authors (https://github.com/octaviopardo/Protest)",
+        "licence": "SIL Open Font License",
+        "licenceURL": "https://scripts.sil.org/OFL"
+      },
+      {
+        "family": "Tac One",
+        "style": "Regular",
+        "copyright": "Copyright 2024 The Tac One Project Authors (https://github.com/Afrotype/tac)",
+        "licence": "SIL Open Font License",
+        "licenceURL": "https://openfontlicense.org"
+      },
+      {
+        "family": "Tektur",
+        "style": "Bold",
+        "copyright": "Copyright 2023 The Tektur Project Authors (https://www.github.com/hyvyys/Tektur)",
+        "licence": "SIL Open Font License",
+        "licenceURL": "https://scripts.sil.org/OFL"
+      }
+    ]
+  },
+  "conventions": {
+    "graveOnCircumflex": "right",
+    "stackSize": "full",
+    "requested": {
+      "graveOnCircumflex": "auto",
+      "stackSize": "auto"
+    },
+    "category": "display"
+  },
+  "audit": {
+    "score": 89,
+    "grade": "review",
+    "counts": {
+      "pass": 7,
+      "warn": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    "composedNothing": false,
+    "checks": [
+      {
+        "id": "vertical-fit",
+        "status": "warn",
+        "variant": "over",
+        "params": {
+          "count": 32,
+          "percent": 122
+        },
+        "measured": {
+          "kind": "percentOfAscender",
+          "value": 122
+        }
+      },
+      {
+        "id": "mark-size",
+        "status": "warn",
+        "variant": "someOut",
+        "params": {
+          "sampled": 114,
+          "failed": 0,
+          "warned": 12
+        },
+        "measured": {
+          "kind": "ratio",
+          "value": 102,
+          "of": 114,
+          "unit": "inBand"
+        }
+      },
+      {
+        "id": "coverage",
+        "status": "pass",
+        "variant": "complete",
+        "params": {
+          "total": 135,
+          "missing": 0,
+          "examples": "",
+          "more": false
+        },
+        "measured": {
+          "kind": "ratio",
+          "value": 135,
+          "of": 135
+        }
+      },
+      {
+        "id": "clearance",
+        "status": "pass",
+        "variant": "clear",
+        "params": {
+          "collisions": 0,
+          "tight": 0
+        },
+        "measured": {
+          "kind": "tight",
+          "value": 0
+        }
+      },
+      {
+        "id": "horn",
+        "status": "pass",
+        "variant": "joined",
+        "params": {
+          "total": 24,
+          "detached": 0
+        },
+        "measured": {
+          "kind": "ratio",
+          "value": 24,
+          "of": 24,
+          "unit": "joined"
+        }
+      },
+      {
+        "id": "spacing",
+        "status": "pass",
+        "variant": "widened",
+        "params": {
+          "changed": 24,
+          "overhang": 0,
+          "percent": 12
+        },
+        "measured": {
+          "kind": "widened",
+          "value": 24
+        }
+      },
+      {
+        "id": "consistency",
+        "status": "pass",
+        "variant": "uniform",
+        "params": {
+          "inconsistent": 0,
+          "percent": 6
+        },
+        "measured": {
+          "kind": "spread",
+          "value": 6
+        }
+      },
+      {
+        "id": "composition",
+        "status": "pass",
+        "variant": "clean",
+        "params": {
+          "count": 0,
+          "examples": []
+        },
+        "measured": {
+          "kind": "clean"
+        }
+      },
+      {
+        "id": "export",
+        "status": "pass",
+        "variant": "losses",
+        "params": {
+          "losses": [
+            "hinting"
+          ],
+          "count": 1
+        },
+        "measured": {
+          "kind": "limitations",
+          "value": 1
+        }
+      }
+    ],
+    "glyphs": [
+      {
+        "char": "Ạ",
+        "name": "Adotbelow",
+        "unicode": 7840,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ạ",
+        "name": "adotbelow",
+        "unicode": 7841,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ấ",
+        "name": "Acircumflexacute",
+        "unicode": 7844,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ấ",
+        "name": "acircumflexacute",
+        "unicode": 7845,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ầ",
+        "name": "Acircumflexgrave",
+        "unicode": 7846,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ầ",
+        "name": "acircumflexgrave",
+        "unicode": 7847,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ẩ",
+        "name": "Acircumflexhookabove",
+        "unicode": 7848,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "ẩ",
+        "name": "acircumflexhookabove",
+        "unicode": 7849,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 119
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ẫ",
+        "name": "Acircumflextilde",
+        "unicode": 7850,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ẫ",
+        "name": "acircumflextilde",
+        "unicode": 7851,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 119
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ậ",
+        "name": "Acircumflexdotbelow",
+        "unicode": 7852,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ậ",
+        "name": "acircumflexdotbelow",
+        "unicode": 7853,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ắ",
+        "name": "Abreveacute",
+        "unicode": 7854,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ắ",
+        "name": "abreveacute",
+        "unicode": 7855,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ằ",
+        "name": "Abrevegrave",
+        "unicode": 7856,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ằ",
+        "name": "abrevegrave",
+        "unicode": 7857,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ẳ",
+        "name": "Abrevehookabove",
+        "unicode": 7858,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 121
+            }
+          }
+        ]
+      },
+      {
+        "char": "ẳ",
+        "name": "abrevehookabove",
+        "unicode": 7859,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 122
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ẵ",
+        "name": "Abrevetilde",
+        "unicode": 7860,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ẵ",
+        "name": "abrevetilde",
+        "unicode": 7861,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 120
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ặ",
+        "name": "Abrevedotbelow",
+        "unicode": 7862,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ặ",
+        "name": "abrevedotbelow",
+        "unicode": 7863,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ẹ",
+        "name": "Edotbelow",
+        "unicode": 7864,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ẹ",
+        "name": "edotbelow",
+        "unicode": 7865,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ế",
+        "name": "Ecircumflexacute",
+        "unicode": 7870,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ế",
+        "name": "ecircumflexacute",
+        "unicode": 7871,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ề",
+        "name": "Ecircumflexgrave",
+        "unicode": 7872,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ề",
+        "name": "ecircumflexgrave",
+        "unicode": 7873,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ể",
+        "name": "Ecircumflexhookabove",
+        "unicode": 7874,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "ể",
+        "name": "ecircumflexhookabove",
+        "unicode": 7875,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 119
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ễ",
+        "name": "Ecircumflextilde",
+        "unicode": 7876,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ễ",
+        "name": "ecircumflextilde",
+        "unicode": 7877,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 119
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ệ",
+        "name": "Ecircumflexdotbelow",
+        "unicode": 7878,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ệ",
+        "name": "ecircumflexdotbelow",
+        "unicode": 7879,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ị",
+        "name": "Idotbelow",
+        "unicode": 7882,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ị",
+        "name": "idotbelow",
+        "unicode": 7883,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ọ",
+        "name": "Odotbelow",
+        "unicode": 7884,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ọ",
+        "name": "odotbelow",
+        "unicode": 7885,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ố",
+        "name": "Ocircumflexacute",
+        "unicode": 7888,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ố",
+        "name": "ocircumflexacute",
+        "unicode": 7889,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ồ",
+        "name": "Ocircumflexgrave",
+        "unicode": 7890,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ồ",
+        "name": "ocircumflexgrave",
+        "unicode": 7891,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ổ",
+        "name": "Ocircumflexhookabove",
+        "unicode": 7892,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 118
+            }
+          }
+        ]
+      },
+      {
+        "char": "ổ",
+        "name": "ocircumflexhookabove",
+        "unicode": 7893,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 119
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ỗ",
+        "name": "Ocircumflextilde",
+        "unicode": 7894,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 116
+            }
+          }
+        ]
+      },
+      {
+        "char": "ỗ",
+        "name": "ocircumflextilde",
+        "unicode": 7895,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "tallStack",
+            "params": {
+              "percent": 119
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ộ",
+        "name": "Ocircumflexdotbelow",
+        "unicode": 7896,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ộ",
+        "name": "ocircumflexdotbelow",
+        "unicode": 7897,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ợ",
+        "name": "Ohorndotbelow",
+        "unicode": 7906,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ợ",
+        "name": "ohorndotbelow",
+        "unicode": 7907,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          },
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ụ",
+        "name": "Udotbelow",
+        "unicode": 7908,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ụ",
+        "name": "udotbelow",
+        "unicode": 7909,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "Ự",
+        "name": "Uhorndotbelow",
+        "unicode": 7920,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ự",
+        "name": "uhorndotbelow",
+        "unicode": 7921,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          },
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "Ỵ",
+        "name": "Ydotbelow",
+        "unicode": 7924,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ỵ",
+        "name": "ydotbelow",
+        "unicode": 7925,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "₫",
+        "name": "dong",
+        "unicode": 8363,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "belowDescender",
+            "params": {}
+          }
+        ]
+      },
+      {
+        "char": "ơ",
+        "name": "ohorn",
+        "unicode": 417,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ớ",
+        "name": "ohornacute",
+        "unicode": 7899,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ờ",
+        "name": "ohorngrave",
+        "unicode": 7901,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ở",
+        "name": "ohornhookabove",
+        "unicode": 7903,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ỡ",
+        "name": "ohorntilde",
+        "unicode": 7905,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ư",
+        "name": "uhorn",
+        "unicode": 432,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ứ",
+        "name": "uhornacute",
+        "unicode": 7913,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ừ",
+        "name": "uhorngrave",
+        "unicode": 7915,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ử",
+        "name": "uhornhookabove",
+        "unicode": 7917,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      },
+      {
+        "char": "ữ",
+        "name": "uhorntilde",
+        "unicode": 7919,
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "offSize",
+            "params": {
+              "mark": "horn",
+              "actual": 18,
+              "expected": 27
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "webAsset": {
+    "file": "BT-Brik-3XL-Oblique-VI.woff2",
+    "bytes": 14736,
+    "sha256": "9be6efa9118d81f52fad9297432151aa3590911e84bad1b27d9a40d7511f2f9a",
+    "sourceCharactersPreserved": 376,
+    "ascent": 1001,
+    "descent": -247,
+    "inkTop": 1001,
+    "inkBottom": -247
+  }
+}

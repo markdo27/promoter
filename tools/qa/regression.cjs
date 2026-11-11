@@ -17,7 +17,7 @@ fs.mkdirSync(path.dirname(out), { recursive: true });
     page.on('pageerror', e => errors.push(e.message));
     try {
       await page.clock.install({ time: new Date(options.time || '2026-11-11T09:22:00Z') });
-      if (options.blockFont) await page.route('**/assets/fonts/Brik-3XL-Oblique.ttf', route => route.abort());
+      if (options.blockFont) await page.route('**/fonts/BT-Brik-3XL-Oblique-VI.woff2', route => route.abort());
       await page.goto(new URL('?demo=1', baseURL).href, { waitUntil: 'networkidle' });
       await page.locator('.pc[data-id]').first().waitFor();
       await run(page);
@@ -133,10 +133,12 @@ fs.mkdirSync(path.dirname(out), { recursive: true });
     assert.equal(bookings[0].date, '2026-11-21');
     assert.deepEqual(bookings[0].idolIds, ['demo1']);
   });
-  await scenario('Vietnamese event title switches as a whole to sans', async page => {
+  await scenario('Vietnamese event title uses the VinaDau extended Brik face', async page => {
     await chooseNight(page, '2026-11-15');
     assert.equal(await page.locator('#flyDj').evaluate(el => el.classList.contains('vn')), true);
-    assert.doesNotMatch(await page.locator('#flyDj').evaluate(el => getComputedStyle(el).fontFamily), /BT Brik/);
+    await page.evaluate(() => document.fonts.ready);
+    assert.match(await page.locator('#flyDj').evaluate(el => getComputedStyle(el).fontFamily), /BT Brik VN/);
+    assert.equal(await page.evaluate(() => [...document.fonts].some(font => font.family === 'BT Brik VN' && font.status === 'loaded')), true);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   });
   await scenario('Blocked display font has a usable fallback without overflow', async page => {

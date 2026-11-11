@@ -18,3 +18,5 @@ npm test --prefix tools/qa
 Cần Google Chrome được cài trên máy. Kết quả JSON lưu ở `.qa/booking-results.json`. Biến `PROMOTER_BASE_URL` đổi địa chỉ máy chủ cục bộ; `PROMOTER_QA_OUTPUT` đổi nơi ghi kết quả. Bộ kiểm tra từ chối địa chỉ bên ngoài máy cục bộ.
 
 Các ca bao gồm ngày đêm được chọn, ngày sau nửa đêm, bảo toàn thông tin khi đổi promoter, giữ bàn khi ngày chỉ đổi cách viết, promoter kín bàn, radio bàn phím, sơ đồ bàn tùy chọn, tên dài, tiếng Việt và font dự phòng.
+
+Chạy `npm run test:typography --prefix tools/qa` để kiểm thêm 320/390/768/1280/1440px với BT Brik đã được VinaDấu tạo dấu. Bộ này đọc font thực tế của glyph qua Chrome DevTools Protocol, kiểm NFC, dấu chồng và tràn ngang; ảnh và kết quả nằm ở `docs/audit-2026-11-11/vietnamese/`.

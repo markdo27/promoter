@@ -1,0 +1,152 @@
+[
+  {
+    "width": 320,
+    "eventFonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 12
+      }
+    ],
+    "fonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 14
+      }
+    ],
+    "layout": {
+      "scrollWidth": 320,
+      "viewport": 320,
+      "left": 16,
+      "right": 304,
+      "lineHeight": 57.1504,
+      "inkHeight": 54
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "eventFonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 12
+      }
+    ],
+    "fonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 14
+      }
+    ],
+    "layout": {
+      "scrollWidth": 390,
+      "viewport": 390,
+      "left": 16,
+      "right": 374,
+      "lineHeight": 71.8582,
+      "inkHeight": 68
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "eventFonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 12
+      }
+    ],
+    "fonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 14
+      }
+    ],
+    "layout": {
+      "scrollWidth": 768,
+      "viewport": 768,
+      "left": 16,
+      "right": 752,
+      "lineHeight": 107.52,
+      "inkHeight": 101
+    },
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "eventFonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 12
+      }
+    ],
+    "fonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 14
+      }
+    ],
+    "layout": {
+      "scrollWidth": 1280,
+      "viewport": 1280,
+      "left": 66,
+      "right": 830,
+      "lineHeight": 143.36,
+      "inkHeight": 135
+    },
+    "errors": []
+  },
+  {
+    "proofFonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 173
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "eventFonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 12
+      }
+    ],
+    "fonts": [
+      {
+        "familyName": "BT Brik 3XL Viet",
+        "postScriptName": "BTBrik3XLViet-Italic",
+        "isCustomFont": true,
+        "glyphCount": 14
+      }
+    ],
+    "layout": {
+      "scrollWidth": 1440,
+      "viewport": 1440,
+      "left": 146,
+      "right": 910,
+      "lineHeight": 143.36,
+      "inkHeight": 135
+    },
+    "errors": []
+  }
+]

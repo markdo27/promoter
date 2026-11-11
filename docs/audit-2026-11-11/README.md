@@ -12,7 +12,7 @@ Nguồn mã trước sửa: Promoter `e97d999`. Font tham chiếu: blkmenu `438a
 | P1 | Đổi promoter xóa dữ liệu khách đã nhập | Giữ tên, điện thoại, lịch, số khách, ghi chú, lựa chọn bàn và voucher |
 | P2 | Thẻ kín bàn bị khóa, không mở được nút đổi ngày | Vẫn xem hồ sơ, focus ô ngày khi chọn ngày khác; vẫn chặn gửi ngày đã kín |
 | P2 | Nút đặt bàn, chọn promoter, menu, điện thoại và voucher cùng tranh chú ý | Một nút chính, các hành động phụ nhẹ hơn; voucher giảm viền và bóng |
-| P2 | Font không giống blkmenu; phép tính tiêu đề cố định theo Anton | BT Brik 3XL Oblique thật cho tên Latin; đo font thực bằng canvas |
+| P2 | Font không giống blkmenu; phép tính tiêu đề cố định theo Anton | BT Brik 3XL Oblique thật, thêm dấu Việt bằng VinaDấu; đo font thực bằng canvas |
 | P2 | Nhiễu nền, thẻ xoay, băng keo và nhãn hạng quá mạnh | Bỏ lớp nhiễu và góc xoay; bốn cột desktop lớn, ba cột tablet, mobile vuốt ngang |
 | P2 | Sơ đồ bàn mở sẵn trước nút gửi | Gập sơ đồ tùy chọn, nhãn bàn cập nhật khi chọn và bỏ chọn |
 | P2 | Radio danh xưng sai ARIA và mất focus khi dựng lại | `aria-checked`, một điểm Tab, phím mũi tên/Home/End, phục hồi focus |
@@ -23,8 +23,8 @@ Trong vòng review còn phát hiện và đã sửa: so sánh ngày theo chuỗi
 
 - blkmenu thực tế dùng BT Brik cho display và `"Helvetica Neue", Helvetica, Arial, sans-serif` cho chữ thường, không phải Helvetica Now đã được tải lên web.
 - BT Brik 3XL Oblique dùng outline nghiêng thật, `font-style: oblique`, `font-weight: 700`. Tệp triển khai được kiểm trả HTTP 200 và CORS `*`.
-- Bộ Brik thiếu phần lớn chữ Việt có dấu. Tên đêm ngoài ASCII chuyển cả dòng sang sans để không chắp glyph; không tuyên bố đã Việt hóa Brik.
-- Dùng trực tiếp tệp font đang phục vụ tại blkmenu, không thêm binary thương mại từ repo private vào repo public. Đây là phụ thuộc vào đường dẫn triển khai blkmenu, có sans dự phòng khi mất nguồn. Yellowtail cạnh logo giữ nguyên.
+- Theo yêu cầu tiếp theo của người dùng, dùng bộ tạo dấu thật của VinaDấu để thêm 95 ký tự Việt còn thiếu, giữ 40 ký tự đã có. Cả tiêu đề Latin và Việt dùng cùng BT Brik, không còn chuyển cả dòng tiếng Việt sang sans. NFC xử lý cả chữ phân rã.
+- Font nguồn khớp SHA-256 với tệp đang phục vụ tại blkmenu. Bản mở rộng WOFF2 được lưu cùng Promoter, giữ thông tin gốc và ghi nhận nguồn dấu; có sans dự phòng khi tải lỗi. Yellowtail cạnh logo giữ nguyên. [Ảnh, bảng glyph và kiểm chứng mới](vietnamese/README.md).
 
 ## Bằng chứng
 
@@ -38,6 +38,7 @@ Trong vòng review còn phát hiện và đã sửa: so sánh ngày theo chuỗi
 Ảnh bổ sung: [form điện thoại](after-booking-390.png), [hồ sơ điện thoại](after-profile-390.png).
 
 - [13/13 ca hồi quy đạt](regression.json), có assertion kiểm dữ liệu booking thực lưu vào localStorage của bản demo; chạy lại theo [hướng dẫn](../../tools/qa/README.md).
+- [Kiểm chữ Việt trên năm độ rộng 320/390/768/1280/1440px](vietnamese/browser-results.json): font thực của glyph là BT Brik 3XL Viet, không rơi sang font hệ thống, dấu chồng vừa dòng, không tràn ngang. Ba reviewer duyệt phần bổ sung dấu và tích hợp.
 - Bốn viewport 390, 768, 1280, 1440px: không tràn ngang, không có `pageerror`, không có phản hồi HTTP lỗi trong lần chụp cục bộ.
 - Axe trên lineup và form: trước có lỗi `aria-allowed-attr` ở hai nút danh xưng; sau không còn violation ở các rule WCAG 2 A/AA, 2.1 AA, 2.2 AA đã chạy. Kết quả này không tương đương chứng nhận WCAG hoặc kiểm trình đọc màn hình.
 - Kiểm token của repo và `git diff --check` đạt. Không có bộ build hoặc typecheck TypeScript trong repo thuần HTML/JS này.

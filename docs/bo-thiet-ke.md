@@ -42,14 +42,14 @@ Cách tự kiểm: chạy `node tools/kiem-token.cjs`. Lệnh này không cần 
 Hai chỗ web đang lệch guideline:
 
 - `--concrete` là #8a8880, còn guideline ghi #888888. Hai mã gần như không phân biệt được bằng mắt, nên em giữ nguyên.
-- Tên đêm Latin dùng BT Brik 3XL Oblique từ cùng tệp đang triển khai trên blkmenu. Chữ thường và tiêu đề tiếng Việt dùng `"Helvetica Neue", Helvetica, Arial, sans-serif`, đúng font stack thực tế của blkmenu.
+- Tên đêm Latin và tiếng Việt dùng BT Brik 3XL Oblique đã bổ sung dấu bằng VinaDấu từ đúng tệp blkmenu. Chữ thường dùng `"Helvetica Neue", Helvetica, Arial, sans-serif`, đúng font stack thực tế của blkmenu.
 
 ## Chữ
 
-- `--brand-display` là BT Brik 3XL Oblique, nét nghiêng thật, độ đậm 700; dùng cho tên đêm Latin.
+- `--brand-display` là BT Brik 3XL Oblique đã tạo dấu bằng VinaDấu, tên CSS `BT Brik VN`, nét nghiêng thật, độ đậm 700; dùng cho cả tên đêm Latin và tiếng Việt.
 - `--display` và `--body` dùng `"Helvetica Neue", Helvetica, Arial, sans-serif`. Tiêu đề và nút lớn dùng độ đậm 700; chữ thường dùng 400.
-- BT Brik thiếu phần lớn dấu tiếng Việt. Tên đêm có ký tự ngoài ASCII chuyển cả dòng sang sans, không trộn từng glyph. Chữ ký “promoter” cạnh logo giữ Yellowtail.
-- Font được tải từ `https://blkmenu.vercel.app/assets/fonts/Brik-3XL-Oblique.ttf`, có CORS. Không chép binary thương mại từ repo blkmenu private vào repo Promoter public. Nếu nguồn tải không có, dùng sans dự phòng; cần giữ đường dẫn này khi triển khai lại blkmenu.
+- VinaDấu tạo 95 ký tự còn thiếu, giữ 40 ký tự đã có trong bảng Việt của công cụ; toàn bộ outline và độ rộng chữ gốc được giữ. Chữ phân rã Unicode chuẩn hóa NFC trước khi đo và hiển thị. Tiêu đề có dấu dùng giãn dòng 1,28. Chữ ký “promoter” cạnh logo giữ Yellowtail.
+- Font WOFF2 nằm tại `public/fonts/BT-Brik-3XL-Oblique-VI.woff2`, dùng đường dẫn tương đối theo trang; không còn phụ thuộc tải font từ blkmenu. Khi font lỗi tải, cả chữ Latin và Việt có sans dự phòng. Xem [nguồn và cách tạo](../tools/fonts/README.md), [ghi nhận bản quyền](../public/fonts/NOTICE.md).
 
 | Token | Cỡ | Dùng cho |
 |---|---|---|
