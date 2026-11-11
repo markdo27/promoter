@@ -998,6 +998,52 @@ body.v-lineup .fly-art.pst .pic{box-shadow:0 0 0 1px var(--accent-on)}
   html:has(.mbar.on) .hbook{visibility:hidden}
 }
 @media (max-width:359px){body.v-lineup .fly .btn-ink{padding:0 16px;gap:12px}}
+/* Black public pages: keep white type, red actions and neutral raised surfaces.
+   Scope legacy paper tokens to guest views so the management screens stay independent. */
+body.v-lineup,body.paper{
+  --sheet:var(--card);--sheet-2:var(--card-2);--sheet-ph:var(--frame);
+  --muted-p:var(--paper-2);--hint-p:var(--paper-3);--bad-p:var(--bad-text);
+  background:var(--ink);color:var(--paper);color-scheme:dark;
+}
+body.paper::after{content:none}
+body.v-lineup :focus-visible,body.paper #app :focus-visible,.sdlg :focus-visible{outline-color:var(--acid)}
+body.v-lineup .wk-row,body.v-lineup .ros{border-color:var(--line)}
+body.v-lineup .wk-n+.wk-n{border-left-color:var(--line)}
+body.v-lineup .wk-n[aria-pressed="true"]{background:var(--card-2);box-shadow:inset 0 -3px var(--accent)}
+body.v-lineup .wk .sq[aria-pressed="true"],body.v-lineup .ros .sq:hover{color:var(--acid);text-decoration-color:var(--acid)}
+body.v-lineup .ros .sq[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+body.v-lineup .ros .sq[aria-pressed="true"]:hover{color:var(--ink)}
+body.v-lineup .pc{background:transparent;color:var(--paper)}
+body.v-lineup .pc.full{background:var(--card);color:var(--paper)}
+body.v-lineup .pc-ph,body.v-lineup .pc:nth-child(even) .pc-ph,body.v-lineup .pc.full .pc-ph,body.v-lineup .pc-ini{background:var(--card-2)}
+body.v-lineup .ros-date,body.v-lineup .ros-swipe,body.v-lineup .pc-txt::after,body.v-lineup .empty,body.v-lineup .empty b{color:var(--paper)}
+.sdlg,.sdlg-x{color:var(--paper)}
+.sheet-dl{border-top-color:var(--line)}
+.sheet-st i b{background:var(--paper)}
+.sheet .forte span{border-color:var(--stage-line);color:var(--paper)}
+.sheet .talents span{color:var(--paper)}
+.sdlg .sheet-cta:hover,.mbar-go:hover,.pdlg .btn-acid:hover,body.paper .tk button.cta[type="submit"]:hover,body.paper .cta:not([type="submit"]):not(.cta-line):hover{background:var(--paper);color:var(--ink)}
+.mbar{border-top-color:var(--stage-line)}
+.mbar-tel{border-color:var(--stage-line);color:var(--paper)}
+.mbar-tel:hover{background:var(--paper);color:var(--ink)}
+body.paper .banner,body.paper .empty{border-color:var(--stage-line)}
+body.paper .empty b,body.paper .empty a,body.paper .back.back-swap,body.paper .tk .tpick,body.paper .tk .linkbtn,body.paper .tk .book-help,body.paper .tk .book-help a,body.paper .tk .book-help button,body.paper .prv-tags .tag b,body.paper .prv-item .stars{color:var(--paper)}
+body.paper .back:hover,body.paper .tk .book-help a:hover,body.paper .tk .book-help button:hover{color:var(--acid)}
+body.paper .ghostbtn{border-color:var(--stage-line);color:var(--paper)}
+body.paper .ghostbtn:hover{background:var(--paper);color:var(--ink)}
+body.paper .tk{border-color:var(--stage-line)}
+body.paper .tk-row,body.paper .tk-row p:nth-child(2),body.paper .tk-row p:nth-child(3),body.paper .tk-ev,body.paper .tk-vc{border-bottom-color:var(--line);border-left-color:var(--line);border-top-color:var(--line)}
+body.paper .tk-ev,body.paper .tk-vc{color:var(--paper);border-left-color:var(--accent)}
+body.paper .tk-vc a{color:var(--acid)}
+body.paper .tk label.f input{color:var(--paper)}
+body.paper .tk label.f input:focus{border-bottom-color:var(--acid)}
+body.paper .tk .bsal,body.paper .tk .tqb{border-color:var(--stage-line);color:var(--paper)}
+body.paper .tk .bsal[aria-checked="true"],body.paper .tk .tqb[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+body.paper .tk .bsal:hover:not([aria-checked="true"]),body.paper .tk .tqb:hover:not(:disabled):not([aria-pressed="true"]){background:var(--card-2);color:var(--paper);box-shadow:inset 0 0 0 1px var(--paper)}
+body.paper .tk .hold-note{color:var(--paper)}
+body.paper .tk .hold-note.bad{color:var(--bad-text)}
+body.paper .tk .tmap-wrap,body.paper .prv-tags .tag,body.paper .prv-item .tag{border-color:var(--stage-line)}
+body.paper .tk .book-help{border-top-color:var(--line)}
 </style>
 </head>
 <body class="v-lineup">
