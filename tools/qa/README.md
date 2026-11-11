@@ -19,4 +19,6 @@ Cần Google Chrome được cài trên máy. Kết quả JSON lưu ở `.qa/boo
 
 Các ca bao gồm ngày đêm được chọn, ngày sau nửa đêm, bảo toàn thông tin khi đổi promoter, giữ bàn khi ngày chỉ đổi cách viết, promoter kín bàn, radio bàn phím, sơ đồ bàn tùy chọn, tên dài, tiếng Việt và font dự phòng.
 
+Đợt tinh gọn giao diện bổ sung kiểm poster trên điện thoại, ưu đãi gập lại, ngày voucher tuần sau qua nút và poster, giữ tên/số điện thoại khi xem lại poster, và giữ phần chi tiết cùng tiêu điểm khi dữ liệu tự cập nhật. Tổng cộng 18 ca.
+
 Chạy `npm run test:typography --prefix tools/qa` để kiểm thêm 320/390/768/1280/1440px với BT Brik đã được VinaDấu tạo dấu. Bộ này đọc font thực tế của glyph qua Chrome DevTools Protocol, kiểm NFC, dấu chồng và tràn ngang; ảnh và kết quả nằm ở `docs/audit-2026-11-11/vietnamese/`.
