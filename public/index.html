@@ -40,6 +40,9 @@
   --accent:#B8332C;     /* Primary action; ivory text clears AA contrast. */
   --accent-on:#FBF7F0;
   --focus-wash:rgba(184,51,44,.10);
+  --stage-line:rgba(251,247,240,.4);
+  --portrait:#DFD9CC;
+  --portrait-mark:#B1A798;
   --bad:#E20810;        /* Vibrant Red: viền lỗi */
   --concrete:#8a8880;   /* Concrete Gray: chữ phụ trên nền tối (guideline #888888, web giữ #8a8880) */
   --idol-pink:#D8D4C9;  /* Keep the signature within the neutral palette. */
@@ -806,6 +809,75 @@ body.paper .tpick-f{border-color:var(--hint-p)}
 .ranking-details{margin-top:16px;font-size:var(--fs-xs);color:var(--paper-3)}
 .ranking-details summary{cursor:pointer;min-height:44px;align-content:center}
 .ranking-details .grade-note{margin:0 0 12px}
+/* Editorial nightlife: paper schedule, red event panel and a light portrait roster. */
+body.v-lineup{background:var(--paper);color:var(--ink);color-scheme:light}
+body.v-lineup header.top{color:var(--paper)}
+body.v-lineup :focus-visible{outline-color:var(--accent)}
+body.v-lineup header.top :focus-visible,body.v-lineup footer.foot :focus-visible{outline-color:var(--acid)}
+body.v-lineup .banner[data-kind="warn"]{background:var(--sheet);color:var(--muted-p);border-left-color:var(--accent)}
+body.v-lineup .wk{padding-top:16px}
+body.v-lineup .wk-foot{padding-bottom:8px}
+body.v-lineup .wk-weeks .sq,body.v-lineup .wk-mp{color:var(--muted-p);font-weight:600}
+body.v-lineup .wk .sq[aria-pressed="true"]{color:var(--accent);text-decoration-color:var(--accent)}
+body.v-lineup .wk-row{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+body.v-lineup .wk-n{color:var(--muted-p);padding:16px 12px;border-bottom:0}
+body.v-lineup .wk-n+.wk-n{border-left:1px solid var(--portrait-mark)}
+body.v-lineup .wk-n:hover{background:var(--sheet)}
+body.v-lineup .wk-n[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+body.v-lineup .wk-n[aria-pressed="true"] .wk-d b{color:var(--acid)}
+body.v-lineup .wk-d b{font-size:var(--fs-xl);letter-spacing:-.04em}
+body.v-lineup .wk-t{font-size:var(--fs-xs)}
+body.v-lineup .wk-n[aria-pressed="true"]:focus-visible{outline-color:var(--acid)}
+body.v-lineup .fly{--art:clamp(108px,30vw,160px);--gap:24px;background:var(--accent);color:var(--accent-on);margin-block:24px 36px;padding:24px;gap:20px var(--gap);grid-template-columns:minmax(0,1fr) var(--art)}
+body.v-lineup .fly :focus-visible{outline-color:var(--accent-on);outline-offset:4px}
+body.v-lineup .fly-intro{grid-column:1/-1;grid-row:1;gap:16px;align-self:start}
+body.v-lineup .fly-pre{color:var(--accent-on);font-size:var(--fs-xs);letter-spacing:.14em}
+body.v-lineup .fly-dj{font-size:min(96px,calc((100vw - 104px) / var(--f,4)));letter-spacing:-.035em}
+body.v-lineup .fly-row{color:var(--accent-on);font-size:var(--fs-sm);gap:4px 12px}
+body.v-lineup .fly-detail{display:contents}
+body.v-lineup .fly-btns{grid-column:1/-1;grid-row:2;gap:4px 20px}
+body.v-lineup .fly .btn-ink{background:var(--accent-on);color:var(--ink);min-height:56px;justify-content:space-between}
+body.v-lineup .fly .btn-ink:hover{background:var(--ink);color:var(--accent-on)}
+body.v-lineup .fly .btn-line{color:var(--accent-on)}
+body.v-lineup .fly .btn-line:hover{color:var(--accent-on);text-decoration-thickness:2px}
+body.v-lineup .fly-art{grid-column:2;grid-row:4;align-self:start;max-width:none}
+body.v-lineup .fly-art .pic{box-shadow:6px 6px 0 var(--ink)}
+body.v-lineup .fly-art.pst .pic{border:4px solid var(--accent-on)}
+body.v-lineup .fly-cap{color:var(--accent-on);font-size:var(--fs-2xs);margin-top:12px}
+body.v-lineup .fly-ev{grid-column:1;grid-row:4;align-self:start;font-size:var(--fs-body);font-weight:500;line-height:1.6}
+body.v-lineup .fly-ev .x{color:var(--accent-on);font-size:var(--fs-sm)}
+body.v-lineup .promo{grid-column:1/-1;grid-row:3;color:var(--accent-on);border-color:var(--stage-line);max-width:none}
+body.v-lineup .promo summary::after,body.v-lineup .promo-go,body.v-lineup .promo-pst{color:var(--accent-on)}
+body.v-lineup .promo-t{font-size:var(--fs-ui)}
+body.v-lineup .ros{border-top:3px solid var(--ink);padding-block:24px 40px}
+body.v-lineup .ros-head h2{font-family:var(--brand-display);font-style:oblique;font-size:clamp(28px,5vw,48px);line-height:1.2;letter-spacing:-.025em}
+body.v-lineup .ros-date{color:var(--accent);font-family:var(--body);font-size:var(--fs-ui);font-weight:700;font-style:normal}
+body.v-lineup .ros-head p,body.v-lineup .ros-swipe{color:var(--muted-p)}
+body.v-lineup .ros .sq{color:var(--muted-p)}
+body.v-lineup .ros .sq[aria-pressed="true"]{background:var(--ink);color:var(--paper);text-decoration:none}
+body.v-lineup .ros .sq:hover{color:var(--accent)}
+body.v-lineup .ros .sq[aria-pressed="true"]:hover{color:var(--paper)}
+body.v-lineup .cards{gap:18px;padding-top:24px}
+body.v-lineup .pc{background:var(--sheet);color:var(--ink);gap:0;padding-bottom:16px;transition:transform .18s ease}
+body.v-lineup .pc-ph{background:var(--portrait);color:var(--portrait-mark)}
+body.v-lineup .pc:nth-child(even) .pc-ph{background:var(--sheet-ph);color:var(--portrait-mark)}
+body.v-lineup .pc-txt{padding:16px 14px 0;gap:6px}
+body.v-lineup .pc-name{min-height:2.4em;font-size:var(--fs-md);letter-spacing:-.02em}
+body.v-lineup .pc-meta,body.v-lineup .pc.top .pc-meta{color:var(--muted-p)}
+body.v-lineup .pc-no{left:0;top:0;background:var(--accent);color:var(--accent-on);min-width:44px;padding:8px 10px;font-size:var(--fs-lg)}
+body.v-lineup .pc.top .pc-no{background:var(--ink);color:var(--paper)}
+body.v-lineup .pc.full{background:var(--sheet-ph);color:var(--ink)}
+body.v-lineup .pc.full .pc-ph{background:var(--portrait);color:var(--portrait-mark)}
+body.v-lineup .pc.full .pc-no{background:var(--ink);color:var(--paper)}
+body.v-lineup .pc.full .pc-meta{color:var(--muted-p)}
+body.v-lineup .ranking-details,body.v-lineup .ranking-details .note{color:var(--muted-p)}
+body.v-lineup .empty{color:var(--ink);border-color:var(--hint-p)}
+body.v-lineup .empty b{color:var(--ink)}
+body.v-lineup footer.foot{background:var(--ink);color:var(--paper);border-top:4px solid var(--accent);margin-top:0}
+@media (min-width:700px){body.v-lineup .fly{padding:36px;--art:200px}body.v-lineup .fly-dj{font-size:min(112px,calc((min(100vw,1180px) - 128px) / var(--f,4)))}body.v-lineup .cards{gap:24px;padding:28px 0 0}}
+@media (min-width:900px){body.v-lineup .fly{--art:300px;--gap:48px;grid-template-rows:auto 1fr;padding:44px;margin-block:28px 48px;gap:28px var(--gap)}body.v-lineup .fly-intro{grid-column:1;grid-row:1;align-self:end}body.v-lineup .fly-dj{font-size:min(112px,calc((min(100vw,1180px) - 120px - var(--art) - var(--gap)) / var(--f,4)))}body.v-lineup .fly-detail{display:grid;grid-column:1;grid-row:2;gap:16px;align-content:start}body.v-lineup .fly-detail>*{grid-row:auto;grid-column:auto}body.v-lineup .fly-ev{font-size:var(--fs-lead)}body.v-lineup .fly-art{grid-column:2;grid-row:1/span 2;align-self:center}body.v-lineup .fly-pre{font-size:var(--fs-sm)}body.v-lineup .fly-row{font-size:var(--fs-ui)}body.v-lineup .ros{padding-block:32px 56px}}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){body.v-lineup .pc:hover{transform:translateY(-4px)}}
+@media (hover:hover){body.v-lineup .pc:not([disabled]):hover{outline:2px solid var(--accent);outline-offset:2px}}
 </style>
 </head>
 <body class="v-lineup">
@@ -1239,11 +1311,11 @@ function flyHTML(){
       <p class="fly-pre" id="flyPre">${esc(h.pre)}</p>
       <h1 class="fly-dj${flyVN(dj)?" vn":""}" id="flyDj" style="--f:${flyFit(dj)}">${esc(dj)}</h1>
       <div class="fly-row"><p>${WD_FLY[dw]} · ${ddmm(sel)}<span class="yr">.${sel.slice(0,4)}</span></p><p>${esc(hoursOf(dw))}</p></div>
-    </div>${art}<div class="fly-detail">
+    </div><div class="fly-detail">
       ${evLine}
       <div class="fly-btns"><button type="button" class="btn-ink" data-go="book" data-ev="${sel}">${isNow&&n.state==="tonight"?"ĐẶT BÀN TỐI NAY":"ĐẶT BÀN ĐÊM NÀY"}${ICO_ARW}</button><button type="button" class="btn-line" data-go="roster">chọn promoter</button></div>
       ${promoHTML(dw,sel)}
-    </div>`;
+    </div>${art}`;
 }
 /* dải các đêm trong tuần: event gom theo tuần (thứ 2 → chủ nhật), mỗi lần hiện một tuần */
 const isoWeek=iso=>addDaysIso(iso,-((dowOfIso(iso)+6)%7));
@@ -1262,7 +1334,7 @@ function nightsHTML(){
   let k=ws.findIndex(w=>w.k===S.flyWeek);if(k<0)k=ws.findIndex(w=>w.k===isoWeek(sel));if(k<0)k=0;S.flyWeek=ws[k].k;
   const list=ws[k].list,mp=MONTH_POSTERS[list[0].date.slice(0,7)];
   const tab=e=>{const dw=dowOfIso(e.date);
-    return `<button type="button" class="wk-n" data-night="${e.date}" aria-pressed="${e.date===sel}" aria-label="${DAY_FULL[dw]}, ${ddmm(e.date)}, ${esc(e.name)}"><span class="wk-d"><b>${ddmm(e.date)}</b><span>${DAY_FULL[dw]}</span></span><span class="wk-t">${esc(e.name)}</span></button>`};
+    return `<button type="button" class="wk-n" data-night="${e.date}" aria-pressed="${e.date===sel}"><span class="wk-d"><b>${ddmm(e.date)}</b> <span>${DAY_FULL[dw]}</span></span> <span class="wk-t">${esc(e.name)}</span></button>`};
   return `<section class="wk" id="events" aria-label="các đêm sắp tới">
     <div class="wk-foot">${ws.length>1?`<div class="wk-weeks" role="group" aria-label="chọn tuần">${ws.map(w=>`<button type="button" class="sq" data-week="${w.k}" aria-label="${esc(weekLabel(w,n))}" aria-pressed="${w.k===ws[k].k}">${w.k===isoWeek(n.iso)?"tuần này":esc(weekLabel(w,n))}</button>`).join("")}</div>`:""}
       ${mp?`<button type="button" class="wk-mp" data-pst="month">lịch tháng ${+list[0].date.slice(5,7)}</button>`:""}</div>
@@ -1273,7 +1345,7 @@ function nightsHTML(){
 function cardHTML(r,td){
   const i=r.idol,cid=coverId(i),ld=loadOf(td,i.id),fl=ld>=LOAD_MAX;
   const meta=(r.n?`★ ${fmt1(r.avg)} · hạng ${grade(r)}`:"chưa có hạng")+(ld&&!fl?` · <span class="nw">${loadTile(ld)}</span>`:"");
-  return `<button type="button" class="pc${fl?" full":""}${r.rank===1?" top":""}" data-id="${esc(i.id)}" aria-haspopup="dialog" aria-label="${esc(i.stageName)}, ${r.rank?"hạng "+r.rank:"chưa có hạng"}, ngày ${fmtDate(td)}${ld?", "+loadLabel(ld):""}">
+  return `<button type="button" class="pc${fl?" full":""}${r.rank===1?" top":""}" data-id="${esc(i.id)}" aria-haspopup="dialog" aria-describedby="rosterTitle">
     <span class="pc-tape" aria-hidden="true"></span>
     <span class="pc-ph">${SIL}${cid?`<img src="${esc(cid)}" alt="" loading="lazy" onerror="this.remove()">`:""}${fl?`<span class="pc-stamp"><b>kín bàn</b></span>`:""}</span>
     <span class="pc-no">${r.rank?pad2(r.rank):"-"}</span>
@@ -1386,7 +1458,7 @@ function renderLineup(){
   <section class="fly" id="fly" aria-label="đêm đang chọn">${flyHTML()}</section>
   <section class="ros" id="roster" aria-label="chọn promoter">
     <div class="ros-head">
-      <div><h2>Chọn promoter <span class="ros-date">${fmtDate(tdy)}</span></h2><p>xem hồ sơ và chọn người cho bàn của bạn.</p></div>
+      <div><h2 id="rosterTitle">Chọn promoter <span class="ros-date">${fmtDate(tdy)}</span></h2><p>xem hồ sơ và chọn người cho bàn của bạn.</p></div>
       <div class="ros-tools"><div class="ros-per" role="group" aria-label="khoảng thời gian">
         <button type="button" class="sq" id="pMonth" aria-pressed="${S.period==="month"}">tháng này</button>
         <button type="button" class="sq" id="pAll" aria-pressed="${S.period==="all"}">từ đầu</button>
@@ -1674,7 +1746,7 @@ function renderVoucher(dow){
       <div class="rowbtns"><a class="cta" href="#book">giữ bàn luôn</a><a class="cta cta-line" href="#lineup">về trang chính</a><button type="button" class="linkbtn" id="vcAgain">đăng ký cho người khác</button></div></section>`;
     document.getElementById("vcAgain").onclick=()=>{S.vc=null;render()};return}
   const can=!!S.db;const sizes=VC_SIZES[dow]||[];
-  const chips=(cls,list,cur,label)=>`<div class="tags" role="radiogroup" aria-label="${label}">${list.map(([v,t])=>`<button type="button" class="chip bsal ${cls}" role="radio" data-v="${v}" aria-checked="${cur===v}" aria-pressed="${cur===v}">${t}</button>`).join("")}</div>`;
+  const chips=(cls,list,cur,label)=>`<div class="tags" role="radiogroup" aria-label="${label}">${list.map(([v,t])=>`<button type="button" class="chip bsal ${cls}" role="radio" data-v="${v}" aria-checked="${cur===v}">${t}</button>`).join("")}</div>`;
   app.innerHTML=`${banner()}<a class="back" href="#lineup">← về trang chính</a>
   <div class="book-wrap solo"><section class="tk vc" aria-label="nhận voucher ${esc(p.tag.toLowerCase())}">
     <div class="tk-head"><div class="tk-who"><p class="tk-pre">NHẬN VOUCHER</p><h1 class="tk-name">${esc(p.tag)}</h1><p class="tk-meta">${esc(p.line)}</p></div></div>
