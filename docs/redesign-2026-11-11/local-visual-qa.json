@@ -1,0 +1,177 @@
+[
+  {
+    "width": 320,
+    "initial": {
+      "overflow": false,
+      "heroHeight": 488.34375,
+      "rosterTop": 765.4375,
+      "posterVisible": 100,
+      "heroLinks": [
+        "xem to poster ưu đãi thứ 5",
+        "ĐẶT BÀN ĐÊM NÀY",
+        "chọn promoter",
+        "ưu đãi đêm này · ladies special",
+        null,
+        null
+      ],
+      "accent": "#B8332C"
+    },
+    "homeAxe": {
+      "version": "4.14.0",
+      "violations": []
+    },
+    "font": {
+      "fonts": [
+        {
+          "familyName": "BT Brik 3XL Viet",
+          "postScriptName": "BTBrik3XLViet-Italic",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    "vietnameseOverflow": false,
+    "formAxe": [],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "initial": {
+      "overflow": false,
+      "heroHeight": 487.0625,
+      "rosterTop": 747.109375,
+      "posterVisible": 117,
+      "heroLinks": [
+        "xem to poster ưu đãi thứ 5",
+        "ĐẶT BÀN ĐÊM NÀY",
+        "chọn promoter",
+        "ưu đãi đêm này · ladies special",
+        null,
+        null
+      ],
+      "accent": "#B8332C"
+    },
+    "homeAxe": {
+      "version": "4.14.0",
+      "violations": []
+    },
+    "font": {
+      "fonts": [
+        {
+          "familyName": "BT Brik 3XL Viet",
+          "postScriptName": "BTBrik3XLViet-Italic",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    "vietnameseOverflow": false,
+    "formAxe": [],
+    "errors": []
+  },
+  {
+    "width": 768,
+    "initial": {
+      "overflow": false,
+      "heroHeight": 485.96875,
+      "rosterTop": 791.34375,
+      "posterVisible": 148,
+      "heroLinks": [
+        "xem to poster ưu đãi thứ 5",
+        "ĐẶT BÀN ĐÊM NÀY",
+        "chọn promoter",
+        "ưu đãi đêm này · ladies special",
+        null,
+        null
+      ],
+      "accent": "#B8332C"
+    },
+    "homeAxe": {
+      "version": "4.14.0",
+      "violations": []
+    },
+    "font": {
+      "fonts": [
+        {
+          "familyName": "BT Brik 3XL Viet",
+          "postScriptName": "BTBrik3XLViet-Italic",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    "vietnameseOverflow": false,
+    "formAxe": [],
+    "errors": []
+  },
+  {
+    "width": 1024,
+    "initial": {
+      "overflow": false,
+      "heroHeight": 599.484375,
+      "rosterTop": 878.515625,
+      "posterVisible": 320,
+      "heroLinks": [
+        "xem to poster ưu đãi thứ 5",
+        "ĐẶT BÀN ĐÊM NÀY",
+        "chọn promoter",
+        "ưu đãi đêm này · ladies special",
+        null,
+        null
+      ],
+      "accent": "#B8332C"
+    },
+    "homeAxe": {
+      "version": "4.14.0",
+      "violations": []
+    },
+    "font": {
+      "fonts": [
+        {
+          "familyName": "BT Brik 3XL Viet",
+          "postScriptName": "BTBrik3XLViet-Italic",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    "vietnameseOverflow": false,
+    "formAxe": [],
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "initial": {
+      "overflow": false,
+      "heroHeight": 599.484375,
+      "rosterTop": 878.515625,
+      "posterVisible": 320,
+      "heroLinks": [
+        "xem to poster ưu đãi thứ 5",
+        "ĐẶT BÀN ĐÊM NÀY",
+        "chọn promoter",
+        "ưu đãi đêm này · ladies special",
+        null,
+        null
+      ],
+      "accent": "#B8332C"
+    },
+    "homeAxe": {
+      "version": "4.14.0",
+      "violations": []
+    },
+    "font": {
+      "fonts": [
+        {
+          "familyName": "BT Brik 3XL Viet",
+          "postScriptName": "BTBrik3XLViet-Italic",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    "vietnameseOverflow": false,
+    "formAxe": [],
+    "errors": []
+  }
+]

@@ -1,162 +1,74 @@
-# Bộ thiết kế web BLK46
+﻿# Bộ thiết kế web BLK46
 
-Bộ này gom màu, chữ và nút đang chạy trên https://blk46club.github.io/promoter/ về một chỗ. Mục đích là để lần sau sửa giao diện không phải tự canh mã màu hay cỡ chữ cho khớp.
+Áp dụng cho Promoter trên Vercel từ đợt tinh gọn ngày 11/11/2026. Poster và in ấn vẫn theo bộ nhận diện gốc; giao diện web dùng nền trung tính để hợp với các poster đỏ.
 
-Bộ này chỉ dành cho web. Poster, in ấn và Canva vẫn theo `BRAND GUIDELINE V1.0`.
+## Nguồn và kiểm tra
 
-## Ba thứ trong repo
+- `public/index.html`, khối `:root`: nguồn duy nhất khai báo màu, cỡ chữ và bóng. CSS và JavaScript gọi token.
+- `tools/bo-thiet-ke.html`: trang mẫu đọc CSS thật, không xuất bản cùng web.
+- `node tools/kiem-token.cjs`: kiểm mã màu gõ thẳng, token thiếu và cỡ chữ ngoài thang.
+- `tools/qa/regression.cjs`: kiểm luồng đặt bàn và voucher trong chế độ mẫu trên localhost. Không chạy bộ ghi dữ liệu lên Firebase thật.
 
-| File | Làm gì |
-|---|---|
-| `public/index.html`, khối `:root` đầu thẻ `<style>` | Nơi duy nhất khai báo màu, cỡ chữ và bóng. Mọi chỗ khác gọi `var(--…)`. |
-| `tools/bo-thiet-ke.html` | Trang mẫu, hiện mọi màu (kèm tỉ lệ tương phản), thang chữ và các loại nút trên nền đen lẫn nền giấy. Trang tự đọc CSS thật nên luôn khớp với web. Trang này không đăng lên web. |
-| `tools/kiem-token.cjs` | Máy kiểm. Báo lỗi khi CSS hoặc JS gõ thẳng mã màu, khi gọi biến chưa khai báo, hoặc khi số chỗ gõ cỡ chữ ngoài thang tăng lên. Chạy tự động trên mọi PR. |
+## Bảng màu
 
-Cách xem trang mẫu: ở thư mục gốc repo chạy `python3 -m http.server 8000`, rồi mở http://localhost:8000/tools/bo-thiet-ke.html.
+| Token | Mã | Vai trò |
+| --- | --- | --- |
+| `--ink` | #100E0E | Nền đen than, chữ trên nền giấy |
+| `--paper` | #F0ECE1 | Chữ trắng ngà và nền form |
+| `--accent` | #B8332C | Nền đỏ của nút đặt bàn chính |
+| `--accent-on` | #FBF7F0 | Chữ trên nền đỏ chính |
+| `--acid` | #F4837B | Đỏ sáng cho chữ nhấn, tiêu điểm và trạng thái chọn trên nền tối; tên token giữ tương thích mã cũ |
+| `--focus-wash` | rgba(184,51,44,.10) | Nền nhẹ khi ô nhập được chọn |
+| `--idol-pink` | #D8D4C9 | Chữ ký promoter, tên token giữ tương thích |
+| `--card`, `--card-2` | #191616, #211C1C | Bề mặt tối phụ |
+| `--frame`, `--frame-mark` | #292323, #534747 | Ảnh đại diện dự phòng |
+| `--paper-2`, `--paper-3` | #d8d4c9, #b9b5aa | Chữ phụ trên nền tối |
+| `--line` | rgba(240,236,225,.14) | Đường phân cách |
+| `--sheet`, `--sheet-2` | #F7F4EC, #FBF9F3 | Nền vé, form và đánh giá |
+| `--muted-p`, `--hint-p` | #4a4842, #6e6a61 | Chữ phụ và gợi ý trên nền giấy |
+| `--bad`, `--bad-text`, `--bad-p` | #E20810, #ff6a6f, #b3000b | Lỗi, dùng kèm nội dung giải thích |
+| `--good` | #7fd18b | Trạng thái thành công |
 
-Cách tự kiểm: chạy `node tools/kiem-token.cjs`. Lệnh này không cần cài gì thêm.
-
-## Màu
-
-| Token | Mã | Dùng cho |
-|---|---|---|
-| `--ink` | #000000 | Nền tối, chữ trên giấy, viền vé (Stark Black) |
-| `--paper` | #F0ECE1 | Chữ trên nền tối, nền giấy (Distressed Paper) |
-| `--acid` | #EDD029 | Hành động chính, điểm nhấn (Acid Street Yellow) |
-| `--bad` | #E20810 | Viền lỗi (Vibrant Red) |
-| `--concrete` | #8a8880 | Chữ phụ trên nền tối |
-| `--idol-pink` | #FF5FA2 | Riêng chữ "promoter" cạnh logo |
-| `--white` | #fff | Chỉ dùng ở 3 chỗ hiện có, không dùng thêm |
-| `--card`, `--card-2` | #0e0e0c, #171713 | Thẻ trên nền tối |
-| `--frame`, `--frame-mark` | #1c1c19, #2e2d29 | Khung ảnh trống trên nền tối |
-| `--line` | rgba(240,236,225,.14) | Đường kẻ trên nền tối |
-| `--paper-2`, `--paper-3` | #d8d4c9, #b9b5aa | Chữ phụ sáng và nhãn nhỏ trên nền tối |
-| `--sheet`, `--sheet-2` | #F7F4EC, #FBF9F3 | Vé và thẻ đêm, mẩu đánh giá trên nền giấy |
-| `--sheet-ph`, `--sheet-ph-mark` | #d9d4c7, #c3bdae | Khung ảnh trống trên giấy |
-| `--muted-p` | #4a4842 | Chữ phụ trên giấy |
-| `--hint-p` | #6e6a61 | Chữ gợi ý trong ô nhập |
-| `--bad-text`, `--bad-p` | #ff6a6f, #b3000b | Chữ lỗi trên nền tối và trên giấy |
-| `--good` | #7fd18b | Trạng thái ổn |
-| `--tbl`, `--tbl-taken`, `--tbl-taken-edge` | #8a4a3a, #1c0f0c, #6b4a40 | Sơ đồ bàn |
-
-Hai chỗ web đang lệch guideline:
-
-- `--concrete` là #8a8880, còn guideline ghi #888888. Hai mã gần như không phân biệt được bằng mắt, nên em giữ nguyên.
-- Tên đêm Latin và tiếng Việt dùng BT Brik 3XL Oblique đã bổ sung dấu bằng VinaDấu từ đúng tệp blkmenu. Chữ thường dùng `"Helvetica Neue", Helvetica, Arial, sans-serif`, đúng font stack thực tế của blkmenu.
+Không dùng mảng vàng lớn. Trên nền tối, nút chính dùng `--accent` và `--accent-on`; chữ nhấn dùng `--acid` để đủ tương phản. Các form và nút cũ vẫn nhận màu tương thích qua token.
 
 ## Chữ
 
-- `--brand-display` là BT Brik 3XL Oblique đã tạo dấu bằng VinaDấu, tên CSS `BT Brik VN`, nét nghiêng thật, độ đậm 700; dùng cho cả tên đêm Latin và tiếng Việt.
-- `--display` và `--body` dùng `"Helvetica Neue", Helvetica, Arial, sans-serif`. Tiêu đề và nút lớn dùng độ đậm 700; chữ thường dùng 400.
-- VinaDấu tạo 95 ký tự còn thiếu, giữ 40 ký tự đã có trong bảng Việt của công cụ; toàn bộ outline và độ rộng chữ gốc được giữ. Chữ phân rã Unicode chuẩn hóa NFC trước khi đo và hiển thị. Tiêu đề có dấu dùng giãn dòng 1,28. Chữ ký “promoter” cạnh logo giữ Yellowtail.
-- Font WOFF2 nằm tại `public/fonts/BT-Brik-3XL-Oblique-VI.woff2`, dùng đường dẫn tương đối theo trang; không còn phụ thuộc tải font từ blkmenu. Khi font lỗi tải, cả chữ Latin và Việt có sans dự phòng. Xem [nguồn và cách tạo](../tools/fonts/README.md), [ghi nhận bản quyền](../public/fonts/NOTICE.md).
+- Tên đêm dùng BT Brik 3XL Oblique từ blkmenu, đã bổ sung 95 glyph tiếng Việt bằng VinaDấu. Font WOFF2 nằm ở `public/fonts/BT-Brik-3XL-Oblique-VI.woff2`.
+- `--brand-display`: `"BT Brik VN", "Helvetica Neue", Helvetica, Arial, sans-serif`, nghiêng, đậm 700.
+- `--display` và `--body`: `"Helvetica Neue", Helvetica, Arial, sans-serif`.
+- Chữ ký promoter giữ Yellowtail; màu chuyển về trung tính.
+- Tiêu đề phân rã Unicode chuẩn hóa NFC, đo bằng canvas với font thực tế qua `flyFit`; tên Việt có giãn dòng 1,28. Khi font không tải được, dùng sans dự phòng.
+- Chữ thường lấy thang `--fs-*` từ 11px đến 28px; thang display `--fs-d-*` từ 22px đến 84px. Tiêu đề lớn dùng phép tính đáp ứng, không gõ thêm cỡ px rời rạc.
+- Giữ nguyên outline gốc, thông tin nguồn và giấy phép. Xem `tools/fonts/README.md`, `public/fonts/NOTICE.md`.
 
-| Token | Cỡ | Dùng cho |
-|---|---|---|
-| `--fs-2xs` | 11px | Nhãn, tag |
-| `--fs-xs` | 12px | Ghi chú, eyebrow |
-| `--fs-sm` | 13px | Nút nhỏ, chip, menu |
-| `--fs-ui` | 14px | Chữ phụ trong form |
-| `--fs-body` | 15px | Chữ thường |
-| `--fs-lead` | 16px | |
-| `--fs-md` | 18px | Nút chữ display, câu chân trang |
-| `--fs-lg` | 20px | |
-| `--fs-xl` | 24px | |
-| `--fs-2xl` | 28px | |
+## Bố cục trang khách
 
-Cỡ chữ display cho số, tên đêm và tiêu đề khối:
+1. Thanh đầu trang: logo, menu và hotline trên máy tính, nút đặt bàn luôn dùng được khi cuộn.
+2. Lịch: chọn tuần rồi chọn một trong bốn đêm. Điện thoại chỉ hiện ngày và thứ; máy tính thêm tên đêm. Không lặp giờ, ưu đãi và nhãn có poster trong từng ô.
+3. Đêm đang chọn: tên đêm, ngày, giờ, một mô tả ngắn, nút đặt bàn và đường dẫn chọn promoter. Poster có trên mọi kích thước màn hình.
+4. Ưu đãi: đóng mặc định trong `<details>`, mở mới thấy điều kiện và nút nhận voucher.
+5. Promoter: ảnh và tên là nội dung chính; điểm sao là thông tin phụ. Cách tính xếp hạng và giới hạn nhận bàn nằm trong phần mở rộng.
+6. Chân trang: địa chỉ, giờ mở cửa, liên hệ và các biểu tượng mạng xã hội trung tính.
 
-| Token | Cỡ | Dùng cho |
-|---|---|---|
-| `--fs-d-xs` | 22px | Tên trong thẻ, ô ưu đãi, nút gửi |
-| `--fs-d-s` | 30px | Số liệu hồ sơ, tiêu đề bước |
-| `--fs-d-m` | 36px | Ngày trong lịch |
-| `--fs-d-l` | 44px | Tên thứ, số bước, sao chấm |
-| `--fs-d-xl` | 56px | Số hạng, số bước trên máy tính |
-| `--fs-d-2xl` | 84px | Điểm sao lớn trên hồ sơ |
+Poster chọn theo thứ tự: poster của đúng đêm đang xem, poster ưu đãi định kỳ cùng thứ, poster lịch tháng có nhãn rõ, ảnh quán, hình dự phòng. Không lấy poster của một ngày khác để minh họa ngày đang chọn. Poster giữ đủ ảnh, bấm để xem lớn.
 
-Tiêu đề lớn dùng `clamp()` theo bề rộng màn hình, không cần token.
+Điện thoại dùng hai cột cho tiêu đề và poster nhỏ; phần mô tả và nút nằm dưới. Từ 900px, poster nằm ở cột phải. Thẻ promoter vẫn vuốt ngang dưới 700px, ba cột từ 700px, bốn cột từ 1100px.
 
-Từ 10/11, 32 chỗ cỡ chữ lẻ đã được gom vào thang. Những chỗ đổi cỡ thấy được:
+## Nút và trạng thái
 
-| Chỗ | Trước | Sau |
-|---|---|---|
-| Tên thứ trong lịch | 40px | 44px |
-| Tên promoter trên thẻ, máy tính | 26px | 28px |
-| Nút gửi đặt bàn, điện thoại | 21px | 22px |
-| Chữ "promoter" cạnh logo, điện thoại | 19px | 18px |
-| Nút "đổi người" | 17px | 18px |
-| Ô mã bàn trên tablet | 40px | 44px |
+- `.btn-ink`, `.btn-acid`, `.hbook`: đỏ trầm, chữ trắng ngà. Tên class giữ để tương thích mã cũ.
+- `.wk-n`: chọn đêm, có `aria-pressed`; đêm đang chọn có gạch đỏ sáng và bề mặt tối nhẹ.
+- `.sq`: chọn tuần hoặc khoảng thời gian, chọn bằng gạch dưới thay cho nhiều khung nút cạnh tranh.
+- `.promo summary`, `.ranking-details summary`: mở bằng chuột và bàn phím.
+- `.pc`: mở hồ sơ, kể cả khi promoter kín bàn để khách có thể đặt ngày khác.
+- `.pdlg`: xem poster; `.sdlg`: hồ sơ promoter. Các thao tác đặt bàn giữ ngày đang chọn.
 
-Ngoài ra còn vài chỗ chỉ lệch 1px hoặc chỉ nằm trong trang quản lý: 10→11, 17→18, 64→56. Máy kiểm sẽ báo đỏ nếu có ai gõ cỡ chữ px mới.
+Đổi tuần tự chọn đêm đầu trong tuần nếu ngày cũ không thuộc tuần mới. Voucher nhận qua nút ưu đãi hoặc poster giữ đúng ngày đã chọn; các lần render thường giữ dữ liệu khách đã sửa. Snapshot dữ liệu giữ phần đang mở và tiêu điểm; đổi đêm đóng ưu đãi cũ.
 
-## Bóng
+## Kiểm chứng
 
-Bóng dùng kiểu tem dán: `box-shadow:var(--hard) <màu>` (5px), còn khi bấm thì dùng `var(--hard-press)` (3px).
-
-`--hard-lg` (10px) chỉ dùng cho tấm poster dán trên tờ flyer đầu trang lineup.
-
-## Nút
-
-| Class | Vai trò |
-|---|---|
-| `.btn-acid` | Hành động chính lớn trên nền đen và nền giấy (ĐẶT BÀN, GIỮ BÀN). Một màn chỉ có một nút này. |
-| `.btn-ink` | Hành động chính trên tờ flyer vàng: nút đen chữ vàng, vì nút vàng chìm trên nền vàng. |
-| `button.btn-line`, `a.btn-line` | Hành động phụ đặt cạnh nút chính |
-| `.cta` | Hành động chính nhỏ (form, quản lý) |
-| `.cta.cta-line` | Hành động phụ nhỏ |
-| `.ghostbtn`, `.ghostbtn.danger` | Thao tác trong bảng; danger dùng cho xoá, huỷ |
-| `.chip` | Lọc, chọn một trong nhiều |
-| `.tqb`, `.bsal` | Chọn nhanh trong vé đặt bàn |
-| `.promo-go` | Nút trong ô ưu đãi |
-| `.wk-n` | Ô đêm trong dải tuần. Đêm đang chọn có nền vàng (`aria-pressed="true"`). |
-| `.sq` | Chọn một trong vài mục liền nhau: tuần trong dải đêm, "tháng này / từ đầu" ở lineup. |
-| `.wk-mp` | Link "xem poster lịch tháng 11" dưới dải đêm |
-| `.pill`, `.tag` | Trạng thái và nhãn, không bấm được |
-| `footer.foot .soc a` | Ô mạng xã hội 52px |
-
-Từ PR sửa theo bản soi (10/11):
-
-- Trên trang khách (nền giấy), `.cta` mang cùng kiểu với `.btn-acid`. Nút gửi trong vé vẫn là nút đen chữ vàng. Trang quản lý giữ `.cta` nhỏ.
-- Vùng bấm được nới bằng lớp `::after` vô hình. Bàn trên sơ đồ nới theo khoảng trống giữa các bàn (`.tspot.k-*`), được khoảng 43–63px, riêng SV2 và SV4 rộng 32px.
-
-## Trang lineup: tờ flyer vàng (từ 10/11)
-
-Trang lineup không còn nền giấy. Từ trên xuống có ba khối:
-
-| Khối | Class | Ghi chú |
-|---|---|---|
-| Tờ flyer | `.fly` | Nền vàng acid tràn hết bề ngang, chữ đen. Đây là cặp màu "yellow canvas" trong guideline. Hiện đêm đang chọn: tên đêm, cuống vé `.fly-row`, nút `.btn-ink`, ô ưu đãi `.promo`. |
-| Dải đêm | `.wk` | Nền đen, mỗi tuần 4 ô `.wk-n`. Bấm một ô thì tờ flyer đổi sang đêm đó và nút chính thành GIỮ BÀN ĐÊM NÀY. |
-| Lineup | `.ros` | Nền đen, thẻ ảnh `.pc` nền giấy đặt thẳng. Thẻ hạng 1 có đường vàng ở đáy (`.pc.top`), thẻ kín bàn nền tối có nhãn và vẫn mở được (`.pc.full`). Dưới 700px vuốt ngang; từ 700px ba cột, từ 1100px bốn cột. |
-
-Tên đêm (`.fly-dj`) không dùng token cỡ chữ. `flyFit` đo font thực tế bằng canvas, tìm cách chia hai dòng cân nhau rồi ghi vào `--f`. Đo lại sau khi font tải xong, có tính phần nhô của chữ nghiêng. Trần là 84px trên điện thoại và 112px trên máy tính; tên dài có thể xuống thêm dòng để không tràn.
-
-Tấm poster bên phải tờ flyer (`.fly-art`) chỉ vẽ từ 1024px, tối đa 320px và đặt thẳng. Dưới mức đó JS không tạo thẻ ảnh, nên điện thoại không tải file poster.
-
-Mũi tên và ống nghe là hình vẽ SVG (`ICO_ARW`, `ICO_TEL`), không dùng ký tự mũi tên.
-
-## Khung nổi
-
-| Class | Dùng cho |
-|---|---|
-| `.pdlg` | Xem to poster đêm, poster lịch tháng, poster ưu đãi |
-| `.sdlg` | Hồ sơ promoter, mở khi khách bấm thẻ ở lineup (từ 10/11). Dưới 900px phủ kín màn, từ 900px là khung giữa màn. Nút đặt bàn luôn dính ở đáy khung. Nút back trên điện thoại chỉ đóng khung. |
-
-## Luật
-
-1. Không gõ mã màu hay cỡ chữ mới. Lấy token trong `:root`; thiếu thì thêm token có chú thích rồi mới dùng.
-2. Vàng acid dành cho hành động chính, hoặc làm nền cả tờ flyer đầu trang lineup. Một màn có một nút chính: nút vàng trên nền đen và nền giấy, nút đen trên nền vàng.
-3. Vùng bấm trên điện thoại tối thiểu 44 × 44px.
-4. Link nằm trong câu thì gạch chân. Số điện thoại thì không gạch.
-5. Chữ thân viết thường, tiêu đề in hoa, không dùng dấu chấm than.
-6. Chữ thường cần độ tương phản từ 4,5:1 trở lên. `--hint-p` đã đậm lên #6e6a61, đạt 4,9:1 trên vé.
-7. Mọi thay đổi nhìn thấy được đều phải có ảnh xem trước trên máy tính 1280 và điện thoại 390 trước khi merge.
-
-## Đợt audit UX/UI 11/11/2026
-
-- Bỏ lớp nhiễu toàn màn, băng keo và góc xoay trên thẻ; desktop lớn dùng bốn cột, tablet ba cột, mobile vẫn vuốt ngang. Hạng là nhãn phụ, ảnh và tên giữ vai trò chính.
-- Hero giữ một nút đặt bàn chính. Chọn promoter, menu, hotline và voucher có trọng lượng nhẹ hơn.
-- Sơ đồ bàn là phần tùy chọn gập lại. Danh xưng vẫn theo nghiệp vụ hiện có, hỗ trợ nhóm radio bằng bàn phím.
-- Ngày đang xem đi theo nút đặt bàn và tình trạng promoter. Thẻ kín bàn vẫn mở hồ sơ để chọn ngày khác; đổi promoter giữ thông tin khách đã nhập.
-- Sau nửa đêm, hero có thể nói về đêm bắt đầu hôm trước; ngày giờ form vẫn dùng ngày dân sự Việt Nam theo quy tắc giữ bàn hiện có.
+- Chạy kiểm token và bộ hồi quy bằng dữ liệu mẫu trước khi xuất bản.
+- Chụp trước/sau ở 390px và 1440px; kiểm thêm 320/768/1024px.
+- Kiểm chữ Việt thực tế bằng Chrome DevTools Protocol, không chỉ nhìn tên CSS.
+- Kiểm axe và bàn phím; một lần axe đạt không thay thế kiểm khả năng tiếp cận thủ công đầy đủ.
+- Không gửi đặt bàn hoặc voucher thử vào Firebase thật.

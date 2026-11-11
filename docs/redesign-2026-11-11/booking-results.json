@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Header booking follows next open night on Wednesday",
+    "passed": true
+  },
+  {
+    "name": "Selected night reaches header and promoter booking",
+    "passed": true
+  },
+  {
+    "name": "Changing promoter preserves guest information and typed date",
+    "passed": true
+  },
+  {
+    "name": "Full-date spelling preserves the same table through promoter swap",
+    "passed": true
+  },
+  {
+    "name": "Radio group supports focus, Arrow and Home/End",
+    "passed": true
+  },
+  {
+    "name": "Period filter keeps keyboard focus",
+    "passed": true
+  },
+  {
+    "name": "Optional map summary follows selection and clearing",
+    "passed": true
+  },
+  {
+    "name": "Full promoter remains browsable and only full-date submit is blocked",
+    "passed": true
+  },
+  {
+    "name": "Vietnamese event title uses the VinaDau extended Brik face",
+    "passed": true
+  },
+  {
+    "name": "Blocked display font has a usable fallback without overflow",
+    "passed": true
+  },
+  {
+    "name": "After-midnight booking uses a valid civil date",
+    "passed": true
+  },
+  {
+    "name": "After-midnight availability includes the active previous night",
+    "passed": true
+  },
+  {
+    "name": "Very long DJ name remains inside a narrow viewport",
+    "passed": true
+  },
+  {
+    "name": "Mobile artwork matches the selected date and opens the right poster",
+    "passed": true
+  },
+  {
+    "name": "Collapsed offer keeps voucher access and demo notice stays dismissed",
+    "passed": true
+  },
+  {
+    "name": "Changing week selects a date in that week and preserves keyboard focus",
+    "passed": true
+  },
+  {
+    "name": "Selected later-week voucher date reaches direct and poster actions",
+    "passed": true
+  },
+  {
+    "name": "Live updates preserve expanded details and their keyboard focus",
+    "passed": true
+  }
+]
