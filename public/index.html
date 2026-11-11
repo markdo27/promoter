@@ -36,7 +36,7 @@
   /* màu gốc BLK46, brand guideline V1.0 */
   --ink:#0A0A0A;        /* Neutral black for text and dark surfaces. */
   --paper:#FFFFFF;     /* White surfaces and text on dark backgrounds. */
-  --acid:#FF3333;      /* Bright red for focus and emphasis on black. */
+  --acid:#FF4040;      /* Bright red clears AA for small text on dark cards. */
   --accent:#E20810;    /* Brand red; white text clears AA contrast. */
   --accent-on:#FFFFFF;
   --focus-wash:rgba(226,8,16,.10);
@@ -376,7 +376,7 @@ label.f,div.f{display:grid;gap:4px;align-content:start;font-size:var(--fs-xs);co
 .tspot:hover{box-shadow:0 0 0 2px rgba(255,255,255,.6)}
 .tspot:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
 .tspot.taken{background:rgba(0,0,0,.74);cursor:not-allowed;box-shadow:none}
-.tspot.sel{background:rgba(237,208,41,.28);box-shadow:0 0 0 3px var(--acid)}
+.tspot.sel{background:var(--focus-wash);box-shadow:0 0 0 3px var(--acid)}
 .tmap-legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:var(--fs-xs);color:var(--concrete)}
 .tmap-legend span{display:inline-flex;align-items:center;gap:6px}
 .lg{display:inline-block;width:14px;height:14px;border-radius:3px;background:var(--tbl)}

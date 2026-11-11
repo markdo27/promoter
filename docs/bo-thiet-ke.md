@@ -17,7 +17,7 @@
 | `--paper` | #FFFFFF | Nền trắng của trang chính, chữ trên nền tối |
 | `--accent` | #E20810 | Khối đêm đang chọn, nhãn thứ tự và nút đặt bàn trên thanh đầu |
 | `--accent-on` | #FFFFFF | Chữ trên nền đỏ chính |
-| `--acid` | #FF3333 | Đỏ sáng cho chữ nhấn, tiêu điểm và trạng thái chọn trên nền tối; tên token giữ tương thích mã cũ |
+| `--acid` | #FF4040 | Đỏ sáng cho chữ nhấn, tiêu điểm và trạng thái chọn trên nền tối; đạt tương phản AA trên thẻ tối, tên token giữ tương thích mã cũ |
 | `--focus-wash` | rgba(226,8,16,.10) | Nền nhẹ khi ô nhập được chọn |
 | `--stage-line` | rgba(255,255,255,.4) | Nét phân cách trên khối đỏ |
 | `--portrait`, `--portrait-mark` | #E8E8E8, #A3A3A3 | Nền và hình dự phòng khi promoter chưa có ảnh |
