@@ -56,14 +56,37 @@ async function actualFonts(page, selector) {
           const canvas = document.createElement('canvas');
           const ctx = canvas.getContext('2d');
           ctx.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-          const ink = ctx.measureText('ẤẦẪẶỆỖỠỰỸ');
+          // Leading is measured per title (titleLead), so the line box must hold this title's own ink.
+          const ink = ctx.measureText(el.textContent);
           return { scrollWidth: document.documentElement.scrollWidth, viewport: innerWidth, left: rect.left, right: rect.right, lineHeight: parseFloat(style.lineHeight), inkHeight: ink.actualBoundingBoxAscent + ink.actualBoundingBoxDescent };
         });
         assert(layout.scrollWidth <= width && layout.left >= 0 && layout.right <= width, JSON.stringify(layout));
-        assert(layout.inkHeight <= layout.lineHeight, 'stacked Vietnamese ink fits the line box');
+        assert(layout.inkHeight <= layout.lineHeight, `title ink fits its line box ${JSON.stringify(layout)}`);
         assert.deepEqual(errors, []);
         await page.screenshot({ path: path.join(out, `dj-vi-${width}.png`), fullPage: true });
         results.push({ width, eventFonts, fonts, layout, errors });
+        if (width === 390) {
+          // Worst case: stacked marks above and dots below on wrapped lines must still clear each other.
+          await page.evaluate(() => {
+            const data = JSON.parse(localStorage.getItem('blk46demo:v1'));
+            data.tonight = { '2026-11-12': { dj: 'ẦẪẶ ỆỖỰ ỠỸẤ' } };
+            localStorage.setItem('blk46demo:v1', JSON.stringify(data));
+          });
+          await page.reload({ waitUntil: 'networkidle' });
+          await page.locator('.pc[data-id]').first().waitFor();
+          await page.evaluate(() => document.fonts.ready);
+          const stacked = await page.locator('#flyDj').evaluate(el => {
+            const style = getComputedStyle(el);
+            const ctx = document.createElement('canvas').getContext('2d');
+            ctx.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+            const ink = ctx.measureText(el.textContent);
+            return { text: el.textContent, lines: Math.round(el.getBoundingClientRect().height / parseFloat(style.lineHeight)), lineHeight: parseFloat(style.lineHeight), inkHeight: ink.actualBoundingBoxAscent + ink.actualBoundingBoxDescent };
+          });
+          assert(stacked.lines > 1, `stacked title wraps ${JSON.stringify(stacked)}`);
+          assert(stacked.inkHeight <= stacked.lineHeight, `stacked Vietnamese ink fits the line box ${JSON.stringify(stacked)}`);
+          await page.screenshot({ path: path.join(out, 'dj-stacked-390.png'), fullPage: true });
+          results.push({ width, stacked });
+        }
         if (width === 1280) {
           await page.evaluate(chars => {
             const proof = document.createElement('section');
