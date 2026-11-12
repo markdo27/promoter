@@ -22,8 +22,8 @@
       "viewport": 320,
       "left": 16,
       "right": 304,
-      "lineHeight": 53.7886,
-      "inkHeight": 51
+      "lineHeight": 49.649,
+      "inkHeight": 44
     },
     "errors": []
   },
@@ -50,10 +50,19 @@
       "viewport": 390,
       "left": 16,
       "right": 374,
-      "lineHeight": 68.4964,
-      "inkHeight": 65
+      "lineHeight": 63.2249,
+      "inkHeight": 56
     },
     "errors": []
+  },
+  {
+    "width": 390,
+    "stacked": {
+      "text": "ẦẪẶ ỆỖỰ ỠỸẤ",
+      "lines": 2,
+      "lineHeight": 75.1794,
+      "inkHeight": 68
+    }
   },
   {
     "width": 768,
@@ -78,8 +87,8 @@
       "viewport": 768,
       "left": 16,
       "right": 752,
-      "lineHeight": 143.36,
-      "inkHeight": 135
+      "lineHeight": 134.983,
+      "inkHeight": 119
     },
     "errors": []
   },
@@ -106,8 +115,8 @@
       "viewport": 1280,
       "left": 66,
       "right": 802,
-      "lineHeight": 146.238,
-      "inkHeight": 138
+      "lineHeight": 134.983,
+      "inkHeight": 119
     },
     "errors": []
   },
@@ -144,8 +153,8 @@
       "viewport": 1440,
       "left": 146,
       "right": 882,
-      "lineHeight": 146.238,
-      "inkHeight": 138
+      "lineHeight": 134.983,
+      "inkHeight": 119
     },
     "errors": []
   }

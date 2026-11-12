@@ -1189,6 +1189,11 @@ body.paper .tk .tk-row p{padding-inline:16px}
 body.paper #bErr:not(:empty){padding:12px 14px;background:var(--surface);border-left:3px solid var(--accent);color:var(--paper)}
 body.paper .tk label.f input[aria-invalid="true"]{border-color:var(--acid)}
 section.done .hold-note{color:var(--paper);border-left:3px solid var(--accent);padding-left:12px}
+/* display titles: open tracking so the heavy oblique caps never touch; leading comes from each title's measured ink (titleLead sets --lead) */
+:root{--title-track:.02em}
+.fly-dj,body.v-lineup .fly-dj,body.v-lineup .ros-head h2,.sdlg .sheet-name,h1.tk-name,body.paper .prv-head h2{letter-spacing:var(--title-track);line-height:var(--lead,1.08)}
+.fly-dj,body.v-lineup .fly-dj{line-height:var(--lead,.83)}
+.fly-dj.vn{line-height:var(--lead,1.21)}
 </style>
 </head>
 <body class="v-lineup">
@@ -1514,7 +1519,7 @@ function promoReviewsHTML(i){
   const item=x=>`<article class="prv-item"><div class="top"><span class="stars" aria-label="${x.stars} sao">${starStr(x.stars)}</span><span class="muted">${ago(x.createdAt||Date.now())}</span></div>
     ${x.comment?`<p>${esc(x.comment)}</p>`:""}
     ${(x.tags||[]).length?`<div class="tags">${x.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>`:""}</article>`;
-  return `<div class="prv-head"><h2>Khách trước<br>nói gì <small>${list.length} đánh giá</small></h2></div>
+  return `<div class="prv-head"><h2 ${leadAttr("Khách trước nói gì")}>Khách trước<br>nói gì <small>${list.length} đánh giá</small></h2></div>
     ${tops.length?`<div class="tags prv-tags" aria-label="tag khách chọn nhiều nhất">${tops.map(([t,n])=>`<span class="tag">${esc(t)}<b>${n}</b></span>`).join("")}</div>`:""}
     ${list.length?`<div class="prv-list">${list.slice(0,lim).map(item).join("")}</div>`:`<div class="empty" style="margin-top:14px"><b>${S.loaded.reviews?`${esc(i.stageName)} chưa có đánh giá nào.`:"đang tải…"}</b></div>`}
     ${lim<PRV_MAX&&list.length>lim?`<div style="margin-top:14px"><button class="ghostbtn" id="prvMore">xem thêm (${Math.min(PRV_STEP,list.length-lim,PRV_MAX-lim)})</button></div>`:""}`;
@@ -1600,14 +1605,27 @@ const flyVN=t=>/[^\x00-\x7f]/.test(t);
 const titleMeasure=document.createElement("canvas").getContext("2d");
 /* Measure the actual display face, including italic overhang and Vietnamese letters. */
 function flyFit(text){
-  const words=text.trim().toUpperCase().split(/\s+/),style=getComputedStyle(document.documentElement);
+  const words=text.trim().toUpperCase().split(/\s+/),style=getComputedStyle(document.documentElement),track=parseFloat(style.getPropertyValue("--title-track"))||0;
   titleMeasure.font=`oblique 700 100px ${style.getPropertyValue("--brand-display").trim()}`;
-  const width=value=>{const m=titleMeasure.measureText(value);return Math.max(m.width,m.actualBoundingBoxLeft+m.actualBoundingBoxRight)/100};
+  const width=value=>{const m=titleMeasure.measureText(value);return Math.max(m.width,m.actualBoundingBoxLeft+m.actualBoundingBoxRight)/100+[...value].length*track};
   let best=width(words.join(" "));
   for(let i=1;i<words.length;i++)best=Math.min(best,Math.max(width(words.slice(0,i).join(" ")),width(words.slice(i).join(" "))));
   return Math.max(1.6,+(best*1.05).toFixed(3));
 }
-function paintDj(){const el=document.getElementById("flyDj");if(!el)return;const n=nightInfo(),h=flyHead(n,flySel(n));el.textContent=h.head;el.style.setProperty("--f",flyFit(h.head));el.classList.toggle("vn",flyVN(h.head));const p=document.getElementById("flyPre");if(p)p.textContent=h.pre}
+/* Title leading from the title's own ink: tallest mark above the caps plus deepest mark below, plus a fixed gap.
+   Plain caps stack tight; Vietnamese marks on neighbouring lines never touch. */
+const TITLE_GAP=.14;
+function titleLead(text){
+  titleMeasure.font=`oblique 700 100px ${getComputedStyle(document.documentElement).getPropertyValue("--brand-display").trim()}`;
+  const cap=titleMeasure.measureText("H").actualBoundingBoxAscent,m=titleMeasure.measureText(String(text).toUpperCase());
+  return +((Math.max(cap,m.actualBoundingBoxAscent)+Math.max(0,m.actualBoundingBoxDescent))/100+TITLE_GAP).toFixed(3);
+}
+const leadAttr=text=>`style="--lead:${titleLead(text)}"`;
+/* Fonts can finish after the first render: re-measure every title on screen. */
+function leadTitles(){document.querySelectorAll(".fly-dj,.sheet-name,.tk-name,#rosterTitle,.prv-head h2").forEach(el=>el.style.setProperty("--lead",titleLead(el.textContent)))}
+document.fonts.ready.then(leadTitles);
+document.fonts.addEventListener("loadingdone",leadTitles);
+function paintDj(){const el=document.getElementById("flyDj");if(!el)return;const n=nightInfo(),h=flyHead(n,flySel(n));el.textContent=h.head;el.style.setProperty("--f",flyFit(h.head));el.style.setProperty("--lead",titleLead(h.head));el.classList.toggle("vn",flyVN(h.head));const p=document.getElementById("flyPre");if(p)p.textContent=h.pre}
 document.fonts.ready.then(paintDj);
 document.fonts.addEventListener("loadingdone",paintDj);
 const SIL=`<svg viewBox="0 0 100 120" aria-hidden="true"><circle cx="50" cy="38" r="20" fill="currentColor"/><path d="M10 120c2-32 19-48 40-48s38 16 40 48z" fill="currentColor"/></svg>`;
@@ -1631,7 +1649,7 @@ function flyHTML(){
       :`<div class="fly-art poster"><div class="pic" aria-hidden="true"><img src="brand/blk-ring.svg" alt=""><p>HIP-HOP<br>HOUSE<br>AFRO</p></div></div>`;
   return `<div class="fly-intro">
       <p class="fly-pre" id="flyPre">${esc(h.pre)}</p>
-      <h1 class="fly-dj${flyVN(dj)?" vn":""}" id="flyDj" style="--f:${flyFit(dj)}">${esc(dj)}</h1>
+      <h1 class="fly-dj${flyVN(dj)?" vn":""}" id="flyDj" style="--f:${flyFit(dj)};--lead:${titleLead(dj)}">${esc(dj)}</h1>
       <div class="fly-row"><p>${WD_FLY[dw]} · ${ddmm(sel)}<span class="yr">.${sel.slice(0,4)}</span></p><p>${esc(hoursOf(dw))}</p></div>
     </div><div class="fly-detail">
       ${evLine}
@@ -1716,7 +1734,7 @@ function sheetHTML(r,ghost){
     <div class="sheet-info">
       ${ghost?"":`<button type="button" class="sheet-back" data-x>← xem người khác</button>`}
       <p class="sheet-eb">${eb}</p>
-      <h3 class="sheet-name">${esc(i.stageName)}</h3>
+      <h3 class="sheet-name" ${leadAttr(i.stageName)}>${esc(i.stageName)}</h3>
       <dl class="sheet-dl">${dl.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
       ${ghost?"":full?`<p class="sheet-load">${esc(i.stageName)} đã kín bàn ngày ${fmtDate(date)}.</p><a class="sheet-cta" href="#book-${esc(i.id)}" data-ev="${date}" data-change-date>CHỌN NGÀY KHÁC&nbsp;→</a>`
         :`<p class="sheet-load">ngày ${fmtDate(date)} còn ${LOAD_MAX-ld} chỗ đặt trước</p><a class="sheet-cta" href="#book-${esc(i.id)}" data-ev="${date}">ĐẶT BÀN&nbsp;→<small>cùng ${esc(i.stageName)}</small></a>`}
@@ -1782,7 +1800,7 @@ function renderLineup(){
   <section class="fly" id="fly" aria-label="đêm đang chọn">${flyHTML()}</section>
   <section class="ros" id="roster" aria-label="chọn promoter">
     <div class="ros-head">
-      <div><h2 id="rosterTitle">Chọn promoter <span class="ros-date">${fmtDate(tdy)}</span></h2><p>xem hồ sơ và chọn người cho bàn của bạn.</p></div>
+      <div><h2 id="rosterTitle" ${leadAttr("Chọn promoter")}>Chọn promoter <span class="ros-date">${fmtDate(tdy)}</span></h2><p>xem hồ sơ và chọn người cho bàn của bạn.</p></div>
       <div class="ros-tools"><div class="ros-per" role="group" aria-label="khoảng thời gian">
         <button type="button" class="sq" id="pMonth" aria-pressed="${S.period==="month"}">tháng này</button>
         <button type="button" class="sq" id="pAll" aria-pressed="${S.period==="all"}">từ đầu</button>
@@ -2075,7 +2093,7 @@ function renderVoucher(dow){
   const chips=(cls,list,cur,label)=>`<div class="tags" role="radiogroup" aria-label="${label}">${list.map(([v,t],k)=>`<button type="button" class="chip bsal ${cls}" role="radio" data-v="${v}" aria-checked="${cur===v}" tabindex="${cur===v||(!list.some(([w])=>w===cur)&&k===0)?0:-1}">${t}</button>`).join("")}</div>`;
   app.innerHTML=`${banner()}<a class="back" href="#lineup">← về trang chính</a>
   <div class="book-wrap solo"><section class="tk vc" aria-label="nhận voucher ${esc(p.tag.toLowerCase())}">
-    <div class="tk-head"><div class="tk-who"><p class="tk-pre">NHẬN VOUCHER</p><h1 class="tk-name">${esc(p.tag)}</h1><p class="tk-meta">${esc(p.line)}</p></div></div>
+    <div class="tk-head"><div class="tk-who"><p class="tk-pre">NHẬN VOUCHER</p><h1 class="tk-name" ${leadAttr(p.tag)}>${esc(p.tag)}</h1><p class="tk-meta">${esc(p.line)}</p></div></div>
     <div class="tk-row"><p>MỖI ${esc(DAY_FULL[dow])}</p><p>TỚI TRƯỚC ${esc(before)}</p><p>TẦNG 1, 46 MÃ MÂY</p></div>
     <form class="idol" id="vcForm">
       <div class="fields vf">
@@ -2138,9 +2156,9 @@ function renderBook(idolId){
   const tkMeta=br&&br.n?`★ ${fmt1(br.avg)} · ${br.n} lượt · hạng ${grade(br)}`:"chưa có lượt chấm";
   app.innerHTML=`${banner()}<a class="back back-swap" href="#lineup">${anyone?"← về trang chính":"← đổi promoter"}</a>
   <div class="book-wrap${anyone?" solo":""}"><section class="tk" aria-label="${anyone?"đặt bàn ở blk46":`đặt bàn cùng ${esc(i.stageName)}`}">
-    ${anyone?`<div class="tk-head"><div class="tk-who"><p class="tk-pre">ĐẶT BÀN Ở</p><h1 class="tk-name">BLK46</h1><p class="tk-meta">quán xếp promoter takecare bàn của bạn.</p></div></div>`
+    ${anyone?`<div class="tk-head"><div class="tk-who"><p class="tk-pre">ĐẶT BÀN Ở</p><h1 class="tk-name" ${leadAttr("BLK46")}>BLK46</h1><p class="tk-meta">quán xếp promoter takecare bàn của bạn.</p></div></div>`
     :`<div class="tk-head"><div class="tk-face"><span class="tk-ini" aria-hidden="true">${esc(initials(i.stageName))}</span>${coverId(i)?`<img src="${esc(coverId(i))}" alt="" onerror="this.remove()">`:""}</div>
-      <div class="tk-who"><p class="tk-pre">ĐẶT BÀN CÙNG</p><h1 class="tk-name">${esc(i.stageName)}</h1><p class="tk-meta">${tkMeta}</p></div></div>`}
+      <div class="tk-who"><p class="tk-pre">ĐẶT BÀN CÙNG</p><h1 class="tk-name" ${leadAttr(i.stageName)}>${esc(i.stageName)}</h1><p class="tk-meta">${tkMeta}</p></div></div>`}
     <div class="tk-row"><p id="tkDay"></p><p id="tkTime"></p><p>TẦNG 1, 46 MÃ MÂY</p></div>
     <p class="tk-ev" id="tkEv" hidden></p>
     ${B.fromVoucher?`<div class="tk-vc" role="status"><p><b>ĐÃ GHI VOUCHER ${esc(B.fromVoucher.tag)}</b> cho ${esc(capName(B.fromVoucher.name))}. thông tin bên form voucher đã điền sẵn, chỉ cần điền nốt phần còn trống để giữ bàn.</p><a href="#voucher-${B.fromVoucher.dow}">không cần giữ bàn</a></div>`:""}
