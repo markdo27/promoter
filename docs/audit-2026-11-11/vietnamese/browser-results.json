@@ -22,8 +22,8 @@
       "viewport": 320,
       "left": 16,
       "right": 304,
-      "lineHeight": 57.1504,
-      "inkHeight": 54
+      "lineHeight": 53.7886,
+      "inkHeight": 51
     },
     "errors": []
   },
@@ -50,8 +50,8 @@
       "viewport": 390,
       "left": 16,
       "right": 374,
-      "lineHeight": 71.8582,
-      "inkHeight": 68
+      "lineHeight": 68.4964,
+      "inkHeight": 65
     },
     "errors": []
   },
@@ -78,8 +78,8 @@
       "viewport": 768,
       "left": 16,
       "right": 752,
-      "lineHeight": 107.52,
-      "inkHeight": 101
+      "lineHeight": 143.36,
+      "inkHeight": 135
     },
     "errors": []
   },
@@ -105,9 +105,9 @@
       "scrollWidth": 1280,
       "viewport": 1280,
       "left": 66,
-      "right": 830,
-      "lineHeight": 143.36,
-      "inkHeight": 135
+      "right": 802,
+      "lineHeight": 146.238,
+      "inkHeight": 138
     },
     "errors": []
   },
@@ -143,9 +143,9 @@
       "scrollWidth": 1440,
       "viewport": 1440,
       "left": 146,
-      "right": 910,
-      "lineHeight": 143.36,
-      "inkHeight": 135
+      "right": 882,
+      "lineHeight": 146.238,
+      "inkHeight": 138
     },
     "errors": []
   }
